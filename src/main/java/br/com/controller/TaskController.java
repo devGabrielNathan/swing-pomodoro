@@ -1,0 +1,35 @@
+package br.com.controller;
+
+import br.com.dto.tarefa.TaskRequest;
+import br.com.dto.tarefa.TaskResponse;
+import br.com.service.TaskService;
+
+import java.util.List;
+
+public class TaskController {
+    private final TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    public List<TaskResponse> findAll() {
+        return taskService.findAll();
+    }
+
+    public TaskResponse findById(Long id) {
+        return taskService.findById(id);
+    }
+
+    public TaskResponse create(TaskRequest request) {
+        return taskService.create(request);
+    }
+
+    public TaskResponse update(Long id, TaskRequest request) {
+        return taskService.update(id, request);
+    }
+
+    public void delete(Long id) {
+        taskService.delete(id);
+    }
+}
