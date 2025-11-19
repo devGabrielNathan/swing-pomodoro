@@ -6,8 +6,8 @@ public class EntityNotFound extends RuntimeException {
 
     public EntityNotFound(Long id, String name) {
         super();
-        this.name = name;
         this.id = id;
+        this.name = name;
     }
 
     @Override

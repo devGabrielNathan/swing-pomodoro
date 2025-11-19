@@ -1,277 +1,115 @@
 package br.com.dao;
 
-import br.com.exceptions.CustomFileNotFoundException;
+import br.com.exceptions.EntityNotFound;
 import br.com.exceptions.IntegrationException;
 import br.com.model.Category;
 
-
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.*;
 
 public class CategoryDAO {
-    private final Category category;
-    // Adicionando configurações de 'log' par facilitar o desenvolvimento.
     private static final Logger logger = Logger.getLogger(CategoryDAO.class.getName());
-    // caminho onde o arquivo das categorias está salvo.
     private static final String FILE = "src/main/resources/categoria.txt";
     private static final short FIELDS = 3;
 
-    public CategoryDAO () {
-        this.category = new Category();
-    }
-    // Obtém a categoria pelo ‘id’ acessando o arquivo categoria.txt
+    // TODO: Adicionar tratamento de exceção para quando a categoria não for encontrada
     public Category findById(Long id) {
-        try {
-            // Criando uma instância de BuffereReader para ler o arquivo
-            // e criando uma instância de FileReader para dizer qual arquivo será lido
-            BufferedReader reader = new BufferedReader(new FileReader(FILE));
-            String line;
-
-            // Lendo o arquivo linha por linha até o final do arquivo enquanto a linha for diferente de nulo
-            while ((line = reader.readLine()) != null) {
-                // Ignorando linhas vazias
-                if (line.trim().isEmpty()) continue;
-
-                // Dividindo a linha em partes usando vírgula como separador
-                String[] parts = line.split(",");
-                // Verificando se há pelo menos 3 partes ('id', nome, descrição)
-                if (parts.length < FIELDS) continue;
-
-                // Convertendo a primeira parte para Long ('id' da categoria)
-                Long categoryId = Long.parseLong(parts[0]);
-
-                // Verificando se o 'id' da categoria corresponde ao 'id' fornecido
-                if (categoryId.equals(id)) {
-                    // Salvando nome e descrição obtidos do arquivo
-                    String name = parts[1];
-                    String description = parts[2];
-
-                    // Retornando uma nova instância de Category com os dados obtidos
-                    // Criando uma instância com nome e descrição do arquivo e o 'id' fornecido na requisição
-                    return new Category(categoryId, name, description);
-                }
-            }
-        } catch (FileNotFoundException e) {
-            // verificando se o arquivo foi passado corretamente no BuffereReader/FileReader
-            logger.log(Level.INFO, "File not found: {0}.", FILE);
-            logger.warning(e.getMessage());
-            // modificando a exception para uma personalizada para evitar o uso do throws na assinatura do método
-            // e facilitar a compreensão do erro com uma mensagem mais amigável
-            throw new CustomFileNotFoundException();
-        } catch (Exception e) {
-            // capturando qualquer outra exception que pode ser lançada
-            logger.log(Level.INFO, "Error finding category by ID: {0}.", id);
-            logger.warning(e.getMessage());
-            // lançando uma exception personalizada para facilitar a
-            // compreensão do erro com uma mensagem mais amigável
-            throw new IntegrationException();
-        }
-        return null;
+        List<Category> categories = FileHelper.readObjects(FILE, this::parseLine);
+        return categories.stream().filter(c -> c.getId().equals(id)).findFirst().orElse(null);
     }
 
-    // Obtém todas as categorias
     public List<Category> findAll() {
-        try {
-            // Criando uma instância de BuffereReader para ler o arquivo
-            // e criando uma instância de FileReader para dizer qual arquivo será lido
-            BufferedReader reader = new BufferedReader(new FileReader(FILE));
-            List<Category> categories = new ArrayList<>();
-            String line;
-
-            // Lendo o arquivo linha por linha até o final do arquivo enquanto a linha for diferente de nulo
-            while ((line = reader.readLine()) != null) {
-                // Ignorando linhas vazias
-                if (line.trim().isEmpty()) continue;
-
-                // Dividindo a linha em partes usando vírgula como separador
-                String[] parts = line.split(",");
-                // Verificando se há pelo menos 3 partes ('id', nome, descrição)
-                if (parts.length < FIELDS) continue;
-                // Convertendo a primeira parte para Long ('id' da categoria)
-                Long categoryId = Long.parseLong(parts[0]);
-                categories.add(new Category(categoryId, parts[1], parts[2]));
-            }
-            if (categories.isEmpty()) {
-                logger.log(Level.INFO, "No categories found.");
-                return List.of();
-            }
-            return categories;
-        } catch (FileNotFoundException e) {
-            // verificando se o arquivo foi passado corretamente no BuffereReader/FileReader
-            logger.log(Level.INFO, "File not found: {}.", FILE);
-            logger.warning(e.getMessage());
-            // modificando a exception para uma personalizada para evitar o uso do throws na assinatura do método
-            // e facilitar a compreensão do erro com uma mensagem mais amigável
-            throw new CustomFileNotFoundException();
-        } catch (Exception e) {
-            // capturando qualquer outra exception que pode ser lançada
-            logger.log(Level.INFO, "Error searching for all categories.");
-            logger.warning(e.getMessage());
-            // lançando uma exception personalizada para facilitar a
-            // compreensão do erro com uma mensagem mais amigável
-            throw new IntegrationException();
-        }
+        return FileHelper.readObjects(FILE, this::parseLine);
     }
 
     public Category create(Category request) {
         try {
-            // verificando se a requisição é nula
             if (request == null) {
-                logger.warning("Request is null.");
+                logger.warning("Requisição vazia");
                 return null;
             }
-            // salvando os dados da nova categoria
-            Long nextId = getNextId();
-            this.category.setId(nextId);
-            this.category.setName(request.getName());
-            this.category.setDescription(request.getDescription());
-            // salvando a nova categoria no arquivo
-            saveFormat(this.category);
-            return this.findById(nextId);
-
+            Long nextId = FileHelper.getNextId(FILE, FIELDS);
+            request.setId(nextId);
+            FileHelper.appendLine(FILE, formatCategory(request));
+            return findById(nextId);
         } catch (Exception e) {
-            // capturando qualquer outra exception que pode ser lançada
-            logger.log(Level.INFO, "Error creating category.");
+            logger.log(Level.INFO, "Erro ao criar a categoria");
             logger.warning(e.getMessage());
-            // lançando uma exception personalizada para facilitar a
-            // compreensão do erro com uma mensagem mais amigável
             throw new IntegrationException();
         }
     }
 
-    public void delete(Long id) {
-        Category category = findById(id);
+    // TODO: Adicionar validação para verificar se a categoria existe antes de atualizar
+    public Category update(Long id, Category request) {
+        List<Category> categories = FileHelper.readObjects(FILE, this::parseLine);
+        boolean found = false;
 
-        if (Objects.isNull(category)) {
-            logger.log(Level.INFO, "Category with ID: {0} not found for deletion.", id);
-            return;
-        }
+        for (int i = 0; i < categories.size(); i++) {
+            Category category = categories.get(i);
 
-        File inputFile = new File(FILE);
-        File tempFile = new File("src/main/resources/categoria_temp.txt");
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().isEmpty()) continue;
-                String[] parts = line.split(",");
-                if (parts.length < FIELDS) continue;
-                Long categoryId = Long.parseLong(parts[0]);
-                if (!categoryId.equals(id)) {
-                    writer.write(line);
-                    writer.newLine();
-                }
-
+            if (category.getId().equals(id)) {
+                Category updated = getCategory(id, request, category);
+                categories.set(i, updated);
+                found = true;
+                break;
             }
-        } catch (Exception e) {
-            logger.log(Level.INFO, "Error deleting category with ID: {0}.", id);
-            logger.warning(e.getMessage());
-            throw new IntegrationException();
         }
-        if (!inputFile.delete()) {
-            logger.log(Level.INFO, "Could not delete original file: {0}.", FILE);
-            throw new IntegrationException();
+        if (!found) {
+            logger.log(Level.INFO, "Não foi possível encontrar a categoria com id {0}", id);
+            throw new EntityNotFound(id, Category.class.getSimpleName());
         }
-        if (!tempFile.renameTo(inputFile)) {
-            logger.log(Level.INFO, "Could not rename temp file to original file name: {0}.", FILE);
-            throw new IntegrationException();
-        }
-        logger.log(Level.INFO, "Category with ID: {0} successfully deleted.", id);
+        FileHelper.writeObjects(FILE, categories, this::formatCategory, "src/main/resources/categoria_temp.txt");
+        return findById(id);
+    }
+
+    // TODO: Refatorar para usar a função findById e lançar exceção se a categoria não for encontrada
+    public void delete(Long id) {
+        List<Category> categories = FileHelper.readObjects(FILE, this::parseLine);
+        Category category = categories.stream().filter(c -> c.getId().equals(id)).findFirst().orElse(null);
+        categories.remove(category);
+        FileHelper.writeObjects(FILE, categories, this::formatCategory, "src/main/resources/categoria_temp.txt");
     }
 
     public Boolean existsCategory(Long id) {
         Category category = findById(id);
-        return Objects.isNull(category);
+        return Objects.nonNull(category);
     }
 
-    private Long getNextId() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE))) {
-            String line;
-            long max = 0L;
-
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().isEmpty()) continue;
-
-                String[] parts = line.split(",");
-                if (parts.length < FIELDS) continue;
-
-                long id = Long.parseLong(parts[0]);
-                if (id > max) max = id;
-            }
-
-            return max + 1;
-
-        } catch (FileNotFoundException e) {
-            // arquivo ainda não existe? Primeiro ID = 1
-            return 1L;
-        } catch (Exception e) {
-            throw new IntegrationException();
-        }
+    // TODO: Renomear o nome desse método
+    private static Category getCategory(Long id, Category request, Category c) {
+        Category updated = new Category();
+        updated.setId(id);
+        updated.setName(request.getName() != null ? request.getName() : c.getName());
+        updated.setDescription(request.getDescription() != null ? request.getDescription() : c.getDescription());
+        return updated;
     }
 
-    private void saveFormat(Category category) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE, true))) {
-            String line = category.getId() + "," +
-                    category.getName() + "," +
-                    category.getDescription();
-
-            writer.write(line);
-            writer.newLine();
-
-        } catch (Exception e) {
-            throw new IntegrationException();
-        }
-    }
-
-    // Atualiza uma categoria existente substituindo a linha correspondente no arquivo
-    public Category update(Long id, Category request) {
-        Category existing = findById(id);
-        if (existing == null) {
+    private Category parseLine(String line) {
+        if (line == null || line.trim().isEmpty()) {
             return null;
         }
+        try {
+            String[] parts = line.split(",");
 
-        File inputFile = new File(FILE);
-        File tempFile = new File("src/main/resources/categoria_temp.txt");
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().isEmpty()) continue;
-                String[] parts = line.split(",");
-                if (parts.length < FIELDS) continue;
-                Long categoryId = Long.parseLong(parts[0]);
-                if (categoryId.equals(id)) {
-                    String newLine = id + "," + request.getName() + "," + request.getDescription();
-                    writer.write(newLine);
-                    writer.newLine();
-                } else {
-                    writer.write(line);
-                    writer.newLine();
-                }
+            if (parts.length < FIELDS) {
+                return null;
             }
+            Long id = Long.parseLong(parts[0]);
+            String name = parts[1];
+            String description = parts[2];
+            return new Category(id, name, description);
         } catch (Exception e) {
-            logger.log(Level.INFO, "Error updating category with ID: {0}.", id);
+            logger.log(Level.INFO, "Falha ao analisar a linha da categoria");
             logger.warning(e.getMessage());
-            throw new IntegrationException();
+            return null;
         }
-
-        if (!inputFile.delete()) {
-            logger.log(Level.INFO, "Could not delete original file: {0}.", FILE);
-            throw new IntegrationException();
-        }
-        if (!tempFile.renameTo(inputFile)) {
-            logger.log(Level.INFO, "Could not rename temp file to original file name: {0}.", FILE);
-            throw new IntegrationException();
-        }
-
-        return findById(id);
     }
 
+    private String formatCategory(Category category) {
+        return category.getId() + "," +
+               category.getName() + "," +
+               category.getDescription();
+    }
 }

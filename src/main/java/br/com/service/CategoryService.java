@@ -9,8 +9,11 @@ import br.com.model.Category;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public record CategoryService(CategoryDAO categoryDAO, CategoryMapper categoryMapper) {
+    private static final Logger logger = Logger.getLogger(CategoryService.class.getName());
+    private static final short FIELDS = 3;
 
     public CategoryResponse findById(Long id) {
         Category category = categoryDAO.findById(id);
@@ -31,7 +34,6 @@ public record CategoryService(CategoryDAO categoryDAO, CategoryMapper categoryMa
 
     public CategoryResponse update(Long id, CategoryRequest request) {
         Boolean existsCategory = categoryDAO.existsCategory(id);
-
         if (!existsCategory) {
             throw new EntityNotFound(id, Category.class.getSimpleName());
         }
@@ -50,5 +52,4 @@ public record CategoryService(CategoryDAO categoryDAO, CategoryMapper categoryMa
         }
         categoryDAO.delete(id);
     }
-
 }

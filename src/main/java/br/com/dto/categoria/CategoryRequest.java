@@ -41,6 +41,7 @@ public class CategoryRequest {
         this.description = description;
     }
 
+    // TODO: Transformar para annotation
     public void validate() {
         HashMap<String, String> errors = new HashMap<>();
 

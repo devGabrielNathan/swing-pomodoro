@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class FileHelper {
     private static final Logger logger = Logger.getLogger(FileHelper.class.getName());
 
-    public static List<String> readLines(String filePath) throws FileNotFoundException, Exception {
+    public static List<String> readLines(String filePath) {
         List<String> lines = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -19,11 +19,17 @@ public class FileHelper {
                 if (line.trim().isEmpty()) continue;
                 lines.add(line);
             }
+        } catch (FileNotFoundException e) {
+            logger.warning("File not found: " + filePath);
+            throw new IntegrationException();
+        } catch (Exception e) {
+            logger.warning(e.getMessage());
+            throw new IntegrationException();
         }
         return lines;
     }
 
-    public static <T> List<T> readObjects(String filePath, Function<String, T> parser) throws FileNotFoundException, Exception {
+    public static <T> List<T> readObjects(String filePath, Function<String, T> parser) {
         List<String> lines = readLines(filePath);
         List<T> objects = new ArrayList<>();
         for (String line : lines) {
@@ -37,17 +43,8 @@ public class FileHelper {
         return objects;
     }
 
-    public static void appendLine(String filePath, String line) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-            writer.write(line);
-            writer.newLine();
-        } catch (Exception e) {
-            logger.warning(e.getMessage());
-            throw new IntegrationException();
-        }
-    }
-
-    public static void writeLinesAtomic(String filePath, List<String> lines, String tempFilename) {
+    // TODO: Usar DefaultTableModel ao invés de um arquivo temporário
+    public static void writeLines(String filePath, List<String> lines, String tempFilename) {
         File inputFile = new File(filePath);
         File tempFile = new File(tempFilename);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
@@ -70,7 +67,8 @@ public class FileHelper {
         }
     }
 
-    public static <T> void writeObjectsAtomic(String filePath, List<T> objects, Function<T, String> formatter, String tempFilename) {
+    // TODO: Usar DefaultTableModel ao invés de um arquivo temporário
+    public static <T> void writeObjects(String filePath, List<T> objects, Function<T, String> formatter, String tempFilename) {
         List<String> lines = new ArrayList<>();
         for (T obj : objects) {
             try {
@@ -79,7 +77,17 @@ public class FileHelper {
                 logger.warning("Formatter failed for object: " + e.getMessage());
             }
         }
-        writeLinesAtomic(filePath, lines, tempFilename);
+        writeLines(filePath, lines, tempFilename);
+    }
+
+    public static void appendLine(String filePath, String line) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(line);
+            writer.newLine();
+        } catch (Exception e) {
+            logger.warning(e.getMessage());
+            throw new IntegrationException();
+        }
     }
 
     public static long getNextId(String filePath, int expectedFields) {
@@ -87,17 +95,12 @@ public class FileHelper {
             List<String> lines = readLines(filePath);
             long max = 0L;
             for (String line : lines) {
-                try {
-                    String[] parts = line.split(",");
-                    if (parts.length < expectedFields) continue;
-                    long id = Long.parseLong(parts[0]);
-                    if (id > max) max = id;
-                } catch (Exception ignored) {
-                }
+                String[] parts = line.split(",");
+                if (parts.length < expectedFields) continue;
+                long id = Long.parseLong(parts[0]);
+                if (id > max) max = id;
             }
             return max + 1;
-        } catch (FileNotFoundException e) {
-            return 1L;
         } catch (Exception e) {
             throw new IntegrationException();
         }

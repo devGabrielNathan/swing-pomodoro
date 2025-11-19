@@ -7,7 +7,7 @@ import br.com.utils.Status;
 
 import java.util.Date;
 
-public class PomodoroSessionMapper implements BaseMapper<PomodoroSessionRequest, PomodoroSessionResponse, PomodoroSession> {
+public class PomodoroSessionMapper {
 
     public PomodoroSessionResponse toResponse(PomodoroSession entity) {
         if (entity == null) {

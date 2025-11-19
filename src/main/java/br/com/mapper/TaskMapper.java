@@ -4,9 +4,8 @@ import br.com.dto.tarefa.TaskRequest;
 import br.com.dto.tarefa.TaskResponse;
 import br.com.model.Task;
 
-public class TaskMapper implements BaseMapper<TaskRequest, TaskResponse, Task> {
+public class TaskMapper {
 
-    // Mapeia entidade Task para TaskResponse
     public TaskResponse toResponse(Task task) {
         if (task == null) return null;
         TaskResponse response = new TaskResponse();
@@ -19,7 +18,6 @@ public class TaskMapper implements BaseMapper<TaskRequest, TaskResponse, Task> {
         return response;
     }
 
-    // Realiza o mapeamento entre TaskRequest e Task
     public Task toEntity(TaskRequest request) {
         if (request == null) {
             return null;

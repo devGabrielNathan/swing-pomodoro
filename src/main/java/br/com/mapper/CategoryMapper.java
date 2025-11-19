@@ -4,7 +4,7 @@ import br.com.dto.categoria.CategoryRequest;
 import br.com.dto.categoria.CategoryResponse;
 import br.com.model.Category;
 
-public class CategoryMapper implements BaseMapper<CategoryRequest, CategoryResponse, Category> {
+public class CategoryMapper {
 
     public CategoryResponse toResponse(Category category) {
         if (category == null) {

@@ -6,30 +6,26 @@ import br.com.service.PomodoroSessionService;
 
 import java.util.List;
 
-public class PomodoroSessionController {
-    private final PomodoroSessionService service;
-
-    public PomodoroSessionController(PomodoroSessionService service) {
-        this.service = service;
-    }
-
-    public PomodoroSessionResponse registrar(PomodoroSessionRequest request) {
-        return service.create(request);
-    }
+// TODO: Implementar as validações necessárias
+public record PomodoroSessionController(PomodoroSessionService pomodoroSessionService) {
 
     public PomodoroSessionResponse findById(Long id) {
-        return service.findById(id);
+        return pomodoroSessionService.findById(id);
     }
 
     public List<PomodoroSessionResponse> findAll() {
-        return service.findAll();
+        return pomodoroSessionService.findAll();
+    }
+
+    public PomodoroSessionResponse create(PomodoroSessionRequest request) {
+        return pomodoroSessionService.create(request);
     }
 
     public PomodoroSessionResponse update(Long id, PomodoroSessionRequest request) {
-        return service.update(id, request);
+        return pomodoroSessionService.update(id, request);
     }
 
     public void delete(Long id) {
-        service.delete(id);
+        pomodoroSessionService.delete(id);
     }
 }
