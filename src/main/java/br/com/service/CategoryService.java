@@ -11,9 +11,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-public record CategoryService(CategoryDAO categoryDAO, CategoryMapper categoryMapper) {
-    private static final Logger logger = Logger.getLogger(CategoryService.class.getName());
-    private static final short FIELDS = 3;
+public class CategoryService {
+    private final CategoryDAO categoryDAO;
+    private final CategoryMapper categoryMapper;
+
+    public CategoryService() {
+        this.categoryDAO = new CategoryDAO();
+        this.categoryMapper = new CategoryMapper();
+    }
 
     public CategoryResponse findById(Long id) {
         Category category = categoryDAO.findById(id);

@@ -7,7 +7,13 @@ import br.com.service.CategoryService;
 import java.util.List;
 
 // TODO: Implementar as validações necessárias
-public record CategoryController(CategoryService categoryService) {
+public class CategoryController {
+
+    private final CategoryService categoryService;
+
+    public CategoryController() {
+        this.categoryService = new CategoryService();
+    }
 
     public CategoryResponse findById(Long id) {
         return categoryService.findById(id);
