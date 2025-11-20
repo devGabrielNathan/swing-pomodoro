@@ -63,7 +63,6 @@ public class Main {
 
 //        taskController.delete(1L);
 
-
         System.out.println("===== Sessão de Pomodoros Testes =====");
         SwingUtilities.invokeLater(() -> {
 //            TelaPrincipal tela = new TelaPrincipal(categoryController, taskController, pomodoroSessionController);
