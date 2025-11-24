@@ -1,34 +1,26 @@
-package br.com.dto.sessaoPomodoro;
+package br.com.dto.pomodoroSession;
 
 import br.com.utils.Status;
+import br.com.exceptions.ValidationException;
 
 import java.util.Date;
+import java.util.HashMap;
 
-public class PomodoroSessionResponse {
-    private Long id;
+public class PomodoroSessionRequest {
     private Long tarefaId;
     private Long duration;
     private Date createdAt;
     private Date updatedAt;
     private Status status;
 
-    public PomodoroSessionResponse() {}
+    public PomodoroSessionRequest() {}
 
-    public PomodoroSessionResponse(Long id, Long tarefaId, Long duration, Date createdAt, Date updatedAt, Status status) {
-        this.id = id;
+    public PomodoroSessionRequest(Long tarefaId, Long duration, Date createdAt, Date updatedAt, Status status) {
         this.tarefaId = tarefaId;
         this.duration = duration;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getTarefaId() {
@@ -69,6 +61,30 @@ public class PomodoroSessionResponse {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void validate() {
+        HashMap<String, String> errors = new HashMap<>();
+
+        if (tarefaId == null) {
+            errors.put("name", "The name field is required.");
+        }
+
+        if (duration == null) {
+            errors.put("duration", "The duration field is required.");
+        }
+
+        if (createdAt == null) {
+            errors.put("createdAt", "The createdAt field is required.");
+        }
+
+        if (updatedAt == null) {
+            errors.put("updatedAt", "The updatedAt field is required.");
+        }
+
+        if (!errors.isEmpty()) {
+            throw new ValidationException(errors);
+        }
     }
 }
 

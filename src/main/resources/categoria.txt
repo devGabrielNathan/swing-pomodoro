@@ -1,2 +1,1 @@
 1,Mudando Nome,Mudando Descrição
-2,Outra Categoria,Descrição para outra categoria.

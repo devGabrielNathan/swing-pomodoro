@@ -41,8 +41,8 @@ public class Main {
         System.out.println("===== Tarefas Testes =====");
         TaskDAO taskDAO = new TaskDAO();
         TaskMapper taskMapper = new TaskMapper();
-        TaskService taskService = new TaskService(taskDAO, taskMapper);
-        TaskController taskController = new TaskController(taskService);
+        TaskService taskService = new TaskService();
+        TaskController taskController = new TaskController();
 
         taskController.findById(1L);
 

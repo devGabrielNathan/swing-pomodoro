@@ -1,13 +1,18 @@
 package br.com.controller;
 
-import br.com.dto.sessaoPomodoro.PomodoroSessionRequest;
-import br.com.dto.sessaoPomodoro.PomodoroSessionResponse;
+import br.com.dto.pomodoroSession.PomodoroSessionRequest;
+import br.com.dto.pomodoroSession.PomodoroSessionResponse;
 import br.com.service.PomodoroSessionService;
 
 import java.util.List;
 
 // TODO: Implementar as validações necessárias
-public record PomodoroSessionController(PomodoroSessionService pomodoroSessionService) {
+public class PomodoroSessionController {
+    private final PomodoroSessionService pomodoroSessionService;
+    
+    public PomodoroSessionController() {
+        this.pomodoroSessionService = new PomodoroSessionService();
+    }
 
     public PomodoroSessionResponse findById(Long id) {
         return pomodoroSessionService.findById(id);

@@ -1,7 +1,7 @@
 package br.com.mapper;
 
-import br.com.dto.sessaoPomodoro.PomodoroSessionRequest;
-import br.com.dto.sessaoPomodoro.PomodoroSessionResponse;
+import br.com.dto.pomodoroSession.PomodoroSessionRequest;
+import br.com.dto.pomodoroSession.PomodoroSessionResponse;
 import br.com.model.PomodoroSession;
 import br.com.utils.Status;
 

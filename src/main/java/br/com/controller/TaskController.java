@@ -7,8 +7,12 @@ import br.com.service.TaskService;
 import java.util.List;
 
 // TODO: Implementar as validações necessárias
-public record TaskController(TaskService taskService) {
-
+public class TaskController {
+    private final TaskService taskService;
+    
+    public TaskController() {
+        this.taskService = new TaskService();
+    }
     public TaskResponse findById(Long id) {
         return taskService.findById(id);
     }

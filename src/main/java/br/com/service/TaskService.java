@@ -9,8 +9,14 @@ import br.com.model.Task;
 
 import java.util.List;
 
-public record TaskService(TaskDAO taskDAO, TaskMapper taskMapper) {
-
+public class TaskService {
+    private final TaskDAO taskDAO;
+    private final TaskMapper taskMapper;
+    
+    public TaskService() {
+        this.taskDAO = new TaskDAO();
+        this.taskMapper = new TaskMapper();
+    }
     public TaskResponse findById(Long id) {
         Task task = taskDAO.findById(id);
         return taskMapper.toResponse(task);
