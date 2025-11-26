@@ -4,7 +4,7 @@ import br.com.exceptions.IntegrationException;
 import br.com.model.PomodoroSession;
 import br.com.utils.Status;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -92,7 +92,7 @@ public class PomodoroSessionDAO {
             return null;
         }
         try {
-            String[] parts = line.split(",");
+            String[] parts = line.split("#");
 
             if (parts.length < FIELDS) {
                 return null;
@@ -101,8 +101,9 @@ public class PomodoroSessionDAO {
             Long currentId = Long.parseLong(parts[0]);
             Long tarefaId  = Long.parseLong(parts[1]);
             Long duration  = Long.parseLong(parts[2]);
-            Date createdAt = new Date(Long.parseLong(parts[3]));
-            Date updatedAt = new Date(Long.parseLong(parts[4]));
+            SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date createdAt = formatDate.parse(parts[3]);
+            Date updatedAt = formatDate.parse(parts[4]);
             Status status = Status.valueOf(parts[5]);
             return new PomodoroSession(currentId, tarefaId, duration, createdAt, updatedAt, status);
         } catch (Exception e) {

@@ -1,1 +1,6 @@
-1,Mudando Nome,Mudando Descrição
+1#Estudos#Tudo relacionado a aprendizado e cursos
+2#Trabalho#Tarefas do emprego/trabalho remoto
+3#Projetos Pessoais#Side projects e coisas que eu quero fazer
+4#Saúde & Exercícios#Academia, corrida, alongamento
+5#Casa#Tarefas domésticas e organização
+6#Administração#Contas, impostos, burocracia

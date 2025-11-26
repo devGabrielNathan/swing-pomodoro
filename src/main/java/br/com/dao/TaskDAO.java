@@ -87,7 +87,7 @@ public class TaskDAO {
             return null;
         }
         try {
-            String[] parts = line.split(",");
+            String[] parts = line.split("#");
             if (parts.length < FIELDS) {
                 return null;
             }

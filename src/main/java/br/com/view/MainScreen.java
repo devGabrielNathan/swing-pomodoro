@@ -75,16 +75,16 @@ public class MainScreen extends javax.swing.JFrame {
         progressDuration = new javax.swing.JProgressBar();
         txtStatus = new javax.swing.JLabel();
         btnPauseTask = new javax.swing.JButton();
-        btnExitTask = new javax.swing.JButton();
+        btnExitProgram = new javax.swing.JButton();
         btnStopTask = new javax.swing.JButton();
         btnReturnInitialTask = new javax.swing.JButton();
         TaskScreen = new javax.swing.JPanel();
         taskOptions = new javax.swing.JPanel();
-        btnCreateTask1 = new javax.swing.JButton();
-        btnUpdateTask1 = new javax.swing.JButton();
-        btnDeleteTask1 = new javax.swing.JButton();
-        btnExitTask1 = new javax.swing.JButton();
-        btnReturnTask1 = new javax.swing.JButton();
+        btnCreateTask = new javax.swing.JButton();
+        btnUpdateTask = new javax.swing.JButton();
+        btnDeleteTask = new javax.swing.JButton();
+        btnExitTask = new javax.swing.JButton();
+        btnReturnTask = new javax.swing.JButton();
         taskContent = new javax.swing.JPanel();
         taskScrollPane = new javax.swing.JScrollPane();
         taskTable = new javax.swing.JTable();
@@ -108,8 +108,8 @@ public class MainScreen extends javax.swing.JFrame {
         sessionContent = new javax.swing.JPanel();
         sessionScrollPane = new javax.swing.JScrollPane();
         sessionTable = new javax.swing.JTable();
+        taskRegisterScreen = new javax.swing.JPanel();
         taskRegisterPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -117,14 +117,26 @@ public class MainScreen extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        categoryRegisterScreen = new javax.swing.JPanel();
         categoryRegisterPanel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        sessionRegisterScreen = new javax.swing.JPanel();
         sessionRegisterPanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
         setName("MainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -269,8 +281,8 @@ public class MainScreen extends javax.swing.JFrame {
         btnPauseTask.setEnabled(false);
         btnPauseTask.addActionListener(this::btnPauseTaskActionPerformed);
 
-        btnExitTask.setText("Sair");
-        btnExitTask.addActionListener(this::btnExitTaskActionPerformed);
+        btnExitProgram.setText("Sair");
+        btnExitProgram.addActionListener(this::btnExitProgramActionPerformed);
 
         btnStopTask.setText("Parar");
         btnStopTask.setEnabled(false);
@@ -300,7 +312,7 @@ public class MainScreen extends javax.swing.JFrame {
                             .addGroup(contentLayout.createSequentialGroup()
                                 .addComponent(btnReturnInitialTask, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExitTask, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnExitProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(50, 50, 50)
                         .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnStartTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -308,12 +320,12 @@ public class MainScreen extends javax.swing.JFrame {
                             .addComponent(btnStopTask, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnReturnInitialTask, lblDuration, lblTask});
 
-        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxTasks, btnExitTask, txtTaskDuration});
+        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxTasks, btnExitProgram, txtTaskDuration});
 
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +349,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(0, 37, Short.MAX_VALUE)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReturnInitialTask)
-                    .addComponent(btnExitTask)
+                    .addComponent(btnExitProgram)
                     .addComponent(btnStopTask))
                 .addGap(120, 120, 120))
         );
@@ -362,30 +374,27 @@ public class MainScreen extends javax.swing.JFrame {
 
         SwitchPanels.addTab("tab1", StartProgram);
 
-        TaskScreen.setMaximumSize(new java.awt.Dimension(605, 406));
-        TaskScreen.setMinimumSize(new java.awt.Dimension(605, 406));
-        TaskScreen.setPreferredSize(new java.awt.Dimension(605, 406));
+        TaskScreen.setMaximumSize(new java.awt.Dimension(600, 400));
+        TaskScreen.setMinimumSize(new java.awt.Dimension(600, 400));
+        TaskScreen.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        taskOptions.setAlignmentX(0.0F);
-        taskOptions.setAlignmentY(0.0F);
-        taskOptions.setMaximumSize(new java.awt.Dimension(600, 150));
-        taskOptions.setMinimumSize(new java.awt.Dimension(600, 150));
-        taskOptions.setPreferredSize(new java.awt.Dimension(600, 100));
+        taskOptions.setMaximumSize(new java.awt.Dimension(600, 100));
+        taskOptions.setMinimumSize(new java.awt.Dimension(600, 100));
 
-        btnCreateTask1.setText("Criar");
-        btnCreateTask1.addActionListener(this::btnCreateTask1ActionPerformed);
+        btnCreateTask.setText("Criar");
+        btnCreateTask.addActionListener(this::btnCreateTaskActionPerformed);
 
-        btnUpdateTask1.setText("Atualizar");
-        btnUpdateTask1.addActionListener(this::btnUpdateTask1ActionPerformed);
+        btnUpdateTask.setText("Atualizar");
+        btnUpdateTask.addActionListener(this::btnUpdateTaskActionPerformed);
 
-        btnDeleteTask1.setText("Excluir");
-        btnDeleteTask1.addActionListener(this::btnDeleteTask1ActionPerformed);
+        btnDeleteTask.setText("Excluir");
+        btnDeleteTask.addActionListener(this::btnDeleteTaskActionPerformed);
 
-        btnExitTask1.setText("Sair");
-        btnExitTask1.addActionListener(this::btnExitTask1ActionPerformed);
+        btnExitTask.setText("Sair");
+        btnExitTask.addActionListener(this::btnExitTaskActionPerformed);
 
-        btnReturnTask1.setText("Voltar");
-        btnReturnTask1.addActionListener(this::btnReturnTask1ActionPerformed);
+        btnReturnTask.setText("Voltar");
+        btnReturnTask.addActionListener(this::btnReturnTaskActionPerformed);
 
         javax.swing.GroupLayout taskOptionsLayout = new javax.swing.GroupLayout(taskOptions);
         taskOptions.setLayout(taskOptionsLayout);
@@ -395,35 +404,36 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(taskOptionsLayout.createSequentialGroup()
-                        .addComponent(btnReturnTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReturnTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExitTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnExitTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(taskOptionsLayout.createSequentialGroup()
-                        .addComponent(btnCreateTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCreateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeleteTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnDeleteTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(342, Short.MAX_VALUE))
         );
         taskOptionsLayout.setVerticalGroup(
             taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskOptionsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReturnTask1)
-                    .addComponent(btnExitTask1))
+                    .addComponent(btnReturnTask)
+                    .addComponent(btnExitTask))
                 .addGap(18, 18, 18)
                 .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateTask1)
-                    .addComponent(btnDeleteTask1)
-                    .addComponent(btnCreateTask1))
+                    .addComponent(btnUpdateTask)
+                    .addComponent(btnDeleteTask)
+                    .addComponent(btnCreateTask))
                 .addContainerGap())
         );
 
+        taskContent.setAlignmentX(0.0F);
+        taskContent.setAlignmentY(0.0F);
         taskContent.setMaximumSize(new java.awt.Dimension(600, 300));
         taskContent.setMinimumSize(new java.awt.Dimension(600, 300));
-        taskContent.setPreferredSize(new java.awt.Dimension(600, 300));
 
         taskScrollPane.setAlignmentX(0.0F);
         taskScrollPane.setAlignmentY(0.0F);
@@ -435,7 +445,7 @@ public class MainScreen extends javax.swing.JFrame {
         taskTable.setAlignmentY(0.0F);
         taskTable.setMaximumSize(new java.awt.Dimension(600, 80));
         taskTable.setMinimumSize(new java.awt.Dimension(600, 80));
-        taskTable.setPreferredSize(new java.awt.Dimension(600, 80));
+        taskTable.setPreferredSize(new java.awt.Dimension(600, 300));
         taskScrollPane.setViewportView(taskTable);
 
         javax.swing.GroupLayout taskContentLayout = new javax.swing.GroupLayout(taskContent);
@@ -444,13 +454,13 @@ public class MainScreen extends javax.swing.JFrame {
             taskContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(taskContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 594, Short.MAX_VALUE)
+                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
         taskContentLayout.setVerticalGroup(
             taskContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(taskContentLayout.createSequentialGroup()
-                .addComponent(taskScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -459,27 +469,27 @@ public class MainScreen extends javax.swing.JFrame {
         TaskScreenLayout.setHorizontalGroup(
             TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TaskScreenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(TaskScreenLayout.createSequentialGroup()
-                .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
         TaskScreenLayout.setVerticalGroup(
             TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TaskScreenLayout.createSequentialGroup()
                 .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(taskContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
-        SwitchPanels.addTab("tab1", TaskScreen);
+        SwitchPanels.addTab("tab2", TaskScreen);
+
+        CategoryScreen.setMaximumSize(new java.awt.Dimension(600, 400));
+        CategoryScreen.setMinimumSize(new java.awt.Dimension(600, 400));
 
         categoryOptions.setMaximumSize(new java.awt.Dimension(600, 100));
         categoryOptions.setMinimumSize(new java.awt.Dimension(600, 100));
-        categoryOptions.setPreferredSize(new java.awt.Dimension(600, 100));
 
         btnCreateCategory.setText("Criar");
         btnCreateCategory.addActionListener(this::btnCreateCategoryActionPerformed);
@@ -527,14 +537,13 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(btnUpdateCategory)
                     .addComponent(btnDeleteCategory)
                     .addComponent(btnCreateCategory))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         categoryContent.setAlignmentX(0.0F);
         categoryContent.setAlignmentY(0.0F);
         categoryContent.setMaximumSize(new java.awt.Dimension(600, 300));
         categoryContent.setMinimumSize(new java.awt.Dimension(600, 300));
-        categoryContent.setPreferredSize(new java.awt.Dimension(600, 300));
 
         categoryScrollPane.setAlignmentX(0.0F);
         categoryScrollPane.setAlignmentY(0.0F);
@@ -546,7 +555,7 @@ public class MainScreen extends javax.swing.JFrame {
         categoryTable.setAlignmentY(0.0F);
         categoryTable.setMaximumSize(new java.awt.Dimension(600, 80));
         categoryTable.setMinimumSize(new java.awt.Dimension(600, 80));
-        categoryTable.setPreferredSize(new java.awt.Dimension(600, 80));
+        categoryTable.setPreferredSize(new java.awt.Dimension(600, 300));
         categoryScrollPane.setViewportView(categoryTable);
 
         javax.swing.GroupLayout categoryContentLayout = new javax.swing.GroupLayout(categoryContent);
@@ -554,14 +563,15 @@ public class MainScreen extends javax.swing.JFrame {
         categoryContentLayout.setHorizontalGroup(
             categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryContentLayout.createSequentialGroup()
-                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 594, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
         categoryContentLayout.setVerticalGroup(
             categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryContentLayout.createSequentialGroup()
-                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 294, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout CategoryScreenLayout = new javax.swing.GroupLayout(CategoryScreen);
@@ -569,22 +579,27 @@ public class MainScreen extends javax.swing.JFrame {
         CategoryScreenLayout.setHorizontalGroup(
             CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CategoryScreenLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
         CategoryScreenLayout.setVerticalGroup(
             CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CategoryScreenLayout.createSequentialGroup()
                 .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
         );
 
         SwitchPanels.addTab("tab2", CategoryScreen);
 
+        SessionScreen.setPreferredSize(new java.awt.Dimension(600, 400));
+
         sessionOptions.setMaximumSize(new java.awt.Dimension(600, 100));
         sessionOptions.setMinimumSize(new java.awt.Dimension(600, 100));
+        sessionOptions.setPreferredSize(new java.awt.Dimension(600, 100));
 
         btnCreateSession.setText("Criar");
         btnCreateSession.addActionListener(this::btnCreateSessionActionPerformed);
@@ -639,6 +654,7 @@ public class MainScreen extends javax.swing.JFrame {
         sessionContent.setAlignmentY(0.0F);
         sessionContent.setMaximumSize(new java.awt.Dimension(600, 300));
         sessionContent.setMinimumSize(new java.awt.Dimension(600, 300));
+        sessionContent.setPreferredSize(new java.awt.Dimension(600, 300));
 
         sessionScrollPane.setAlignmentX(0.0F);
         sessionScrollPane.setAlignmentY(0.0F);
@@ -650,7 +666,7 @@ public class MainScreen extends javax.swing.JFrame {
         sessionTable.setAlignmentY(0.0F);
         sessionTable.setMaximumSize(new java.awt.Dimension(600, 80));
         sessionTable.setMinimumSize(new java.awt.Dimension(600, 80));
-        sessionTable.setPreferredSize(new java.awt.Dimension(600, 80));
+        sessionTable.setPreferredSize(new java.awt.Dimension(600, 300));
         sessionScrollPane.setViewportView(sessionTable);
 
         javax.swing.GroupLayout sessionContentLayout = new javax.swing.GroupLayout(sessionContent);
@@ -658,7 +674,8 @@ public class MainScreen extends javax.swing.JFrame {
         sessionContentLayout.setHorizontalGroup(
             sessionContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sessionContentLayout.createSequentialGroup()
-                .addComponent(sessionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 594, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(sessionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
         sessionContentLayout.setVerticalGroup(
@@ -673,21 +690,23 @@ public class MainScreen extends javax.swing.JFrame {
         SessionScreenLayout.setHorizontalGroup(
             SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SessionScreenLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
         SessionScreenLayout.setVerticalGroup(
             SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SessionScreenLayout.createSequentialGroup()
                 .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         SwitchPanels.addTab("tab2", SessionScreen);
 
-        taskRegisterPanel.setPreferredSize(new java.awt.Dimension(600, 400));
+        taskRegisterScreen.setPreferredSize(new java.awt.Dimension(600, 400));
 
         jLabel1.setText("Título");
 
@@ -705,13 +724,13 @@ public class MainScreen extends javax.swing.JFrame {
         jButton1.setPreferredSize(new java.awt.Dimension(64, 22));
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout taskRegisterPanelLayout = new javax.swing.GroupLayout(taskRegisterPanel);
+        taskRegisterPanel.setLayout(taskRegisterPanelLayout);
+        taskRegisterPanelLayout.setHorizontalGroup(
+            taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskRegisterPanelLayout.createSequentialGroup()
                 .addGap(253, 253, 253)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -722,11 +741,11 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(0, 266, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jLabel1, jLabel2, jLabel4, jTextField1, jTextField2, jTextField3});
+        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jLabel1, jLabel2, jLabel4, jTextField1, jTextField2, jTextField3});
 
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        taskRegisterPanelLayout.setVerticalGroup(
+            taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskRegisterPanelLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -744,48 +763,156 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(131, 131, 131))
         );
 
-        javax.swing.GroupLayout taskRegisterPanelLayout = new javax.swing.GroupLayout(taskRegisterPanel);
-        taskRegisterPanel.setLayout(taskRegisterPanelLayout);
-        taskRegisterPanelLayout.setHorizontalGroup(
-            taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskRegisterPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout taskRegisterScreenLayout = new javax.swing.GroupLayout(taskRegisterScreen);
+        taskRegisterScreen.setLayout(taskRegisterScreenLayout);
+        taskRegisterScreenLayout.setHorizontalGroup(
+            taskRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(taskRegisterScreenLayout.createSequentialGroup()
+                .addComponent(taskRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        taskRegisterPanelLayout.setVerticalGroup(
-            taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskRegisterPanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        taskRegisterScreenLayout.setVerticalGroup(
+            taskRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskRegisterScreenLayout.createSequentialGroup()
+                .addComponent(taskRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        SwitchPanels.addTab("tab5", taskRegisterPanel);
+        SwitchPanels.addTab("tab5", taskRegisterScreen);
+
+        jLabel3.setText("Nome");
+
+        jLabel5.setText("Descrição");
+
+        jTextField4.addActionListener(this::jTextField4ActionPerformed);
+
+        jTextField5.addActionListener(this::jTextField5ActionPerformed);
+
+        jButton2.setText("Criar");
+        jButton2.setPreferredSize(new java.awt.Dimension(64, 22));
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         javax.swing.GroupLayout categoryRegisterPanelLayout = new javax.swing.GroupLayout(categoryRegisterPanel);
         categoryRegisterPanel.setLayout(categoryRegisterPanelLayout);
         categoryRegisterPanelLayout.setHorizontalGroup(
             categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        categoryRegisterPanelLayout.setVerticalGroup(
-            categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
+                .addGap(253, 253, 253)
+                .addGroup(categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 266, Short.MAX_VALUE))
         );
 
-        SwitchPanels.addTab("tab5", categoryRegisterPanel);
+        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField4, jTextField5});
+
+        categoryRegisterPanelLayout.setVerticalGroup(
+            categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123))
+        );
+
+        javax.swing.GroupLayout categoryRegisterScreenLayout = new javax.swing.GroupLayout(categoryRegisterScreen);
+        categoryRegisterScreen.setLayout(categoryRegisterScreenLayout);
+        categoryRegisterScreenLayout.setHorizontalGroup(
+            categoryRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(categoryRegisterScreenLayout.createSequentialGroup()
+                .addComponent(categoryRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        categoryRegisterScreenLayout.setVerticalGroup(
+            categoryRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, categoryRegisterScreenLayout.createSequentialGroup()
+                .addComponent(categoryRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        SwitchPanels.addTab("tab5", categoryRegisterScreen);
+
+        jLabel7.setText("Título");
+
+        jLabel8.setText("Descrição");
+
+        jLabel9.setText("Categoria");
+
+        jTextField7.addActionListener(this::jTextField7ActionPerformed);
+
+        jTextField8.addActionListener(this::jTextField8ActionPerformed);
+
+        jTextField9.addActionListener(this::jTextField9ActionPerformed);
+
+        jButton3.setText("Criar");
+        jButton3.setPreferredSize(new java.awt.Dimension(64, 22));
+        jButton3.addActionListener(this::jButton3ActionPerformed);
 
         javax.swing.GroupLayout sessionRegisterPanelLayout = new javax.swing.GroupLayout(sessionRegisterPanel);
         sessionRegisterPanel.setLayout(sessionRegisterPanelLayout);
         sessionRegisterPanelLayout.setHorizontalGroup(
             sessionRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        sessionRegisterPanelLayout.setVerticalGroup(
-            sessionRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(sessionRegisterPanelLayout.createSequentialGroup()
+                .addGap(253, 253, 253)
+                .addGroup(sessionRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField9)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 266, Short.MAX_VALUE))
         );
 
-        SwitchPanels.addTab("tab5", sessionRegisterPanel);
+        sessionRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField7, jTextField8});
+
+        sessionRegisterPanelLayout.setVerticalGroup(
+            sessionRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sessionRegisterPanelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(131, 131, 131))
+        );
+
+        javax.swing.GroupLayout sessionRegisterScreenLayout = new javax.swing.GroupLayout(sessionRegisterScreen);
+        sessionRegisterScreen.setLayout(sessionRegisterScreenLayout);
+        sessionRegisterScreenLayout.setHorizontalGroup(
+            sessionRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sessionRegisterScreenLayout.createSequentialGroup()
+                .addComponent(sessionRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        sessionRegisterScreenLayout.setVerticalGroup(
+            sessionRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sessionRegisterScreenLayout.createSequentialGroup()
+                .addComponent(sessionRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        SwitchPanels.addTab("tab5", sessionRegisterScreen);
 
         getContentPane().add(SwitchPanels, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -36, 600, 430));
 
@@ -826,10 +953,10 @@ public class MainScreen extends javax.swing.JFrame {
         switchScreens("Initial", SwitchPanels);
     }//GEN-LAST:event_btnPauseTaskActionPerformed
 
-    private void btnExitTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitTaskActionPerformed
+    private void btnExitProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitProgramActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_btnExitTaskActionPerformed
+    }//GEN-LAST:event_btnExitProgramActionPerformed
 
     private void btnStopTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopTaskActionPerformed
         // TODO add your handling code here:
@@ -846,81 +973,12 @@ public class MainScreen extends javax.swing.JFrame {
         taskTable.setModel(taskTableModel);
     }
     
-    // Category Screen
-    private void btnCreateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCategoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateCategoryActionPerformed
-
-    private void btnUpdateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCategoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateCategoryActionPerformed
-
-    private void btnDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCategoryActionPerformed
-        // TODO add your handling code here:
-        int row = categoryTable.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Selecione uma categoria.");
-            return;
-        }
-
-        Long id = (Long) categoryTable.getValueAt(row, 0);
-
-        if (JOptionPane.showConfirmDialog(this, "Excluir categoria?") == 0) {
-            categoryController.delete(id);
-            loadCategories();
-        }
-    }//GEN-LAST:event_btnDeleteCategoryActionPerformed
-
-    private void btnExitCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCategoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitCategoryActionPerformed
-
-    private void btnReturnCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnCategoryActionPerformed
-        // TODO add your handling code here:
-        switchScreens("Initial", SwitchPanels);
-    }//GEN-LAST:event_btnReturnCategoryActionPerformed
-
     private void loadCategories() {
         List<CategoryResponse> lista = categoryController.findAll();
         categoryTableModel = new CategoryTableModel(lista);
         categoryTable.setModel(categoryTableModel);
     }
     
-    // Session Screen
-    private void btnCreateSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSessionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSessionActionPerformed
-
-    private void btnUpdateSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSessionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateSessionActionPerformed
-
-    private void btnDeleteSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSessionActionPerformed
-        // TODO add your handling code here:
-        int row = sessionTable.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Selecione uma sessão.");
-            return;
-        }
-
-        Long id = (Long) sessionTable.getValueAt(row, 0);
-
-        if (JOptionPane.showConfirmDialog(this, "Excluir sessão?") == 0) {
-            pomodoroSessionController.delete(id);
-            loadSessionPomodoro();
-        }
-    }//GEN-LAST:event_btnDeleteSessionActionPerformed
-
-    private void btnExitSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitSessionActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_btnExitSessionActionPerformed
-
-    private void btnReturnSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnSessionActionPerformed
-        // TODO add your handling code here:
-        switchScreens("Initial", SwitchPanels);
-    }//GEN-LAST:event_btnReturnSessionActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -937,44 +995,116 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnCreateTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateTask1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateTask1ActionPerformed
-
-    private void btnUpdateTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTask1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateTask1ActionPerformed
-
-    private void btnDeleteTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTask1ActionPerformed
-        // TODO add your handling code here:
-        int row = taskTable.getSelectedRow();
-        if (row == -1) {
-            JOptionPane.showMessageDialog(this, "Selecione uma tarefa.");
-            return;
-        }
-
-        Long id = (Long) taskTable.getValueAt(row, 0);
-
-        if (JOptionPane.showConfirmDialog(this, "Excluir tarefa?") == 0) {
-            taskController.delete(id);
-            loadTasks();
-        }
-    }//GEN-LAST:event_btnDeleteTask1ActionPerformed
-
-    private void btnExitTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitTask1ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_btnExitTask1ActionPerformed
-
-    private void btnReturnTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnTask1ActionPerformed
-        // TODO add your handling code here:
-        switchScreens("Initial", SwitchPanels);
-    }//GEN-LAST:event_btnReturnTask1ActionPerformed
-
     private void btnStartProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartProgramActionPerformed
         // TODO add your handling code here:
         switchScreens("Program", SwitchPanels);
     }//GEN-LAST:event_btnStartProgramActionPerformed
+
+    private void btnReturnSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnSessionActionPerformed
+        // TODO add your handling code here:
+        switchScreens("Initial", SwitchPanels);
+    }//GEN-LAST:event_btnReturnSessionActionPerformed
+
+    private void btnExitSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitSessionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitSessionActionPerformed
+
+    private void btnDeleteSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSessionActionPerformed
+        // TODO add your handling code here:
+        int row = sessionTable.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione uma categoria.");
+            return;
+        }
+
+        Long id = (Long) sessionTable.getValueAt(row, 0);
+
+        if (JOptionPane.showConfirmDialog(this, "Excluir categoria?") == 0) {
+            categoryController.delete(id);
+            loadCategories();
+        }
+    }//GEN-LAST:event_btnDeleteSessionActionPerformed
+
+    private void btnUpdateSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSessionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateSessionActionPerformed
+
+    // Category Screen
+    private void btnCreateSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSessionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreateSessionActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnCreateTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateTaskActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreateTaskActionPerformed
+
+    private void btnUpdateTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTaskActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateTaskActionPerformed
+
+    private void btnDeleteTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteTaskActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteTaskActionPerformed
+
+    private void btnExitTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitTaskActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnExitTaskActionPerformed
+
+    private void btnReturnTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnTaskActionPerformed
+        // TODO add your handling code here:
+        switchScreens("Initial", SwitchPanels);
+    }//GEN-LAST:event_btnReturnTaskActionPerformed
+
+    private void btnCreateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreateCategoryActionPerformed
+
+    private void btnUpdateCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateCategoryActionPerformed
+
+    private void btnDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteCategoryActionPerformed
+
+    private void btnExitCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitCategoryActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnExitCategoryActionPerformed
+
+    private void btnReturnCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnCategoryActionPerformed
+        // TODO add your handling code here:
+        switchScreens("Initial", SwitchPanels);
+    }//GEN-LAST:event_btnReturnCategoryActionPerformed
 
     private void loadSessionPomodoro() {
         List<PomodoroSessionResponse> lista = pomodoroSessionController.findAll();
@@ -1046,42 +1176,54 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxTasks;
     private javax.swing.JButton btnCreateCategory;
     private javax.swing.JButton btnCreateSession;
-    private javax.swing.JButton btnCreateTask1;
+    private javax.swing.JButton btnCreateTask;
     private javax.swing.JButton btnCrudCategories;
     private javax.swing.JButton btnCrudSessions;
     private javax.swing.JButton btnCrudTasks;
     private javax.swing.JButton btnDeleteCategory;
     private javax.swing.JButton btnDeleteSession;
-    private javax.swing.JButton btnDeleteTask1;
+    private javax.swing.JButton btnDeleteTask;
     private javax.swing.JButton btnExitCategory;
+    private javax.swing.JButton btnExitProgram;
     private javax.swing.JButton btnExitSession;
     private javax.swing.JButton btnExitTask;
-    private javax.swing.JButton btnExitTask1;
     private javax.swing.JButton btnPauseTask;
     private javax.swing.JButton btnReturnCategory;
     private javax.swing.JButton btnReturnInitialTask;
     private javax.swing.JButton btnReturnSession;
-    private javax.swing.JButton btnReturnTask1;
+    private javax.swing.JButton btnReturnTask;
     private javax.swing.JButton btnStartProgram;
     private javax.swing.JButton btnStartTask;
     private javax.swing.JButton btnStopTask;
     private javax.swing.JButton btnUpdateCategory;
     private javax.swing.JButton btnUpdateSession;
-    private javax.swing.JButton btnUpdateTask1;
+    private javax.swing.JButton btnUpdateTask;
     private javax.swing.JPanel categoryContent;
     private javax.swing.JPanel categoryOptions;
     private javax.swing.JPanel categoryRegisterPanel;
+    private javax.swing.JPanel categoryRegisterScreen;
     private javax.swing.JScrollPane categoryScrollPane;
     private javax.swing.JTable categoryTable;
     private javax.swing.JPanel content;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblDuration;
     private javax.swing.JLabel lblProgram;
     private javax.swing.JLabel lblTask;
@@ -1090,11 +1232,13 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel sessionContent;
     private javax.swing.JPanel sessionOptions;
     private javax.swing.JPanel sessionRegisterPanel;
+    private javax.swing.JPanel sessionRegisterScreen;
     private javax.swing.JScrollPane sessionScrollPane;
     private javax.swing.JTable sessionTable;
     private javax.swing.JPanel taskContent;
     private javax.swing.JPanel taskOptions;
     private javax.swing.JPanel taskRegisterPanel;
+    private javax.swing.JPanel taskRegisterScreen;
     private javax.swing.JScrollPane taskScrollPane;
     private javax.swing.JTable taskTable;
     private javax.swing.JLabel txtStatus;

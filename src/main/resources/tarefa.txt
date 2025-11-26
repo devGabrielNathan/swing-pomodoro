@@ -1,0 +1,10 @@
+1#Estudar JPA e Hibernate#Finalizar o módulo avançado do curso de Java#1#12#8
+2#Implementar tela de login do Pomodoro#Layout + validação + conexão com banco#2#6#6
+3#Escrever artigo sobre Clean Architecture#Post para o blog pessoal#3#8#2
+4#Treino de pernas na academia#4 séries de agachamento + leg press#4#4#4
+5#Refatorar o projeto Swing Pomodoro#Melhorar separação de camadas e MVC#3#10#3
+6#Pagar boleto do cartão e imposto#Entrar no app do banco e conferir tudo#6#2#2
+7#Organizar armário da cozinha#Limpar e rearrumar panelas e potes#5#5#0
+8#Aprender sobre Java Records e Sealed Classes#Assistir vídeos e fazer exercícios práticos#1#6#1
+9#Revisar pull requests da equipe#Sprint está acabando, precisa liberar#2#5#5
+10#Corrida de 5km no parque#Melhorar tempo atual de 28min#4#3#0

@@ -95,7 +95,7 @@ public class FileHelper {
             List<String> lines = readLines(filePath);
             long max = 0L;
             for (String line : lines) {
-                String[] parts = line.split(",");
+                String[] parts = line.split("#");
                 if (parts.length < expectedFields) continue;
                 long id = Long.parseLong(parts[0]);
                 if (id > max) max = id;
