@@ -1,7 +1,7 @@
 package br.com.controller;
 
-import br.com.dto.categoria.CategoryRequest;
-import br.com.dto.categoria.CategoryResponse;
+import br.com.dto.category.CategoryRequest;
+import br.com.dto.category.CategoryResponse;
 import br.com.service.CategoryService;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package br.com.mapper;
 
-import br.com.dto.tarefa.TaskRequest;
-import br.com.dto.tarefa.TaskResponse;
+import br.com.dto.task.TaskRequest;
+import br.com.dto.task.TaskResponse;
 import br.com.model.Task;
 
 public class TaskMapper {
@@ -12,9 +12,7 @@ public class TaskMapper {
         response.setId(task.getId());
         response.setTitle(task.getTitle());
         response.setDescription(task.getDescription());
-        response.setCategory(task.getCategory());
-        response.setPlannedTotalPomodoros(task.getPlannedTotalPomodoros());
-        response.setCompletedTotalPomodoros(task.getCompletedTotalPomodoros());
+        response.setCategoryId(task.getCategoryId());
         return response;
     }
 
@@ -23,11 +21,10 @@ public class TaskMapper {
             return null;
         }
         Task task = new Task();
+        task.setId(request.getId());
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());
-        task.setCategory(request.getCategory());
-        task.setPlannedTotalPomodoros(request.getPlannedTotalPomodoros());
-        task.setCompletedTotalPomodoros(request.getCompletedTotalPomodoros());
+        task.setCategoryId(request.getCategoryId());
         return task;
     }
 }

@@ -1,4 +1,4 @@
-package br.com.dto.categoria;
+package br.com.dto.category;
 
 import br.com.exceptions.ValidationException;
 

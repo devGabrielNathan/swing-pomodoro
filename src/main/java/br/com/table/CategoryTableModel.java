@@ -4,7 +4,7 @@
  */
 package br.com.table;
 
-import br.com.dto.categoria.CategoryResponse;
+import br.com.dto.category.CategoryResponse;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 

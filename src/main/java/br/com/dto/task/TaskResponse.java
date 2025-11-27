@@ -1,14 +1,14 @@
-package br.com.model;
+package br.com.dto.task;
 
-public class Task {
+public class TaskResponse {
     private Long id;
     private String title;
     private String description;
     private Long categoryId;
 
-    public Task() {}
+    public TaskResponse() {}
 
-    public Task(Long id, String title, String description, Long categoryId) {
+    public TaskResponse(Long id, String title, String description, Long categoryId) {
         this.id = id;
         this.title = title;
         this.description = description;

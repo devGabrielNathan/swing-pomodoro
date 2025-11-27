@@ -4,8 +4,10 @@
  */
 package br.com.table;
 
-import br.com.dto.tarefa.TaskResponse;
-import br.com.model.Task;
+import br.com.controller.CategoryController;
+import br.com.dto.category.CategoryResponse;
+import br.com.dto.task.TaskResponse;
+
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -14,13 +16,15 @@ import javax.swing.table.AbstractTableModel;
  * @author gabrielnathan
  */
 public class TaskTableModel extends AbstractTableModel {
+
+    private final CategoryController categoryController;
     private final List<TaskResponse> tasks;
     private final String[] colunas = {
-        "ID", "Título", "Descrição", "Categoria", 
-        "Planejados", "Concluídos"
+        "ID", "Título", "Descrição", "Categoria"
     };
 
     public TaskTableModel(List<TaskResponse> tasks) {
+        this.categoryController = new CategoryController();
         this.tasks = tasks;
     }
 
@@ -41,16 +45,29 @@ public class TaskTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        TaskResponse t = tasks.get(rowIndex);
-        return switch (columnIndex) {
-            case 0 -> t.getId();
-            case 1 -> t.getTitle();
-            case 2 -> t.getDescription();
-            case 3 -> t.getCategory();
-            case 4 -> t.getPlannedTotalPomodoros();
-            case 5 -> t.getCompletedTotalPomodoros();
-            default -> null;
-        };
+        TaskResponse task = tasks.get(rowIndex);
+
+        switch (columnIndex) {
+            case 0:
+                return task.getId();
+            case 1:
+                return task.getTitle();
+            case 2:
+                return task.getDescription() != null ? task.getDescription() : "";
+            case 3: // Categoria
+                Long catId = task.getCategoryId();
+                if (catId == null) {
+                    return "Sem categoria";
+                }
+                try {
+                    CategoryResponse cat = categoryController.findById(catId);
+                    return cat != null ? cat.getName() : "Categoria removida";
+                } catch (Exception e) {
+                    return "Erro ao carregar";
+                }
+            default:
+                return null;
+        }
     }
 
     public TaskResponse get(int row) {

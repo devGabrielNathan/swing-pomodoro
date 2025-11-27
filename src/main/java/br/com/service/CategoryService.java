@@ -1,15 +1,14 @@
 package br.com.service;
 
 import br.com.dao.CategoryDAO;
-import br.com.dto.categoria.CategoryRequest;
-import br.com.dto.categoria.CategoryResponse;
+import br.com.dto.category.CategoryRequest;
+import br.com.dto.category.CategoryResponse;
 import br.com.exceptions.EntityNotFound;
 import br.com.mapper.CategoryMapper;
 import br.com.model.Category;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class CategoryService {
     private final CategoryDAO categoryDAO;

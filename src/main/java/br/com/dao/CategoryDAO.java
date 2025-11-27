@@ -108,8 +108,8 @@ public class CategoryDAO {
     }
 
     private String formatCategory(Category category) {
-        return category.getId() + "," +
-               category.getName() + "," +
+        return category.getId() + "#" +
+               category.getName() + "#" +
                category.getDescription();
     }
 }

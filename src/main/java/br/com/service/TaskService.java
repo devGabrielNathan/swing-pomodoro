@@ -1,8 +1,8 @@
 package br.com.service;
 
 import br.com.dao.TaskDAO;
-import br.com.dto.tarefa.TaskRequest;
-import br.com.dto.tarefa.TaskResponse;
+import br.com.dto.task.TaskRequest;
+import br.com.dto.task.TaskResponse;
 import br.com.exceptions.EntityNotFound;
 import br.com.mapper.TaskMapper;
 import br.com.model.Task;

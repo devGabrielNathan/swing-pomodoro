@@ -1,7 +1,7 @@
 package br.com.controller;
 
-import br.com.dto.tarefa.TaskRequest;
-import br.com.dto.tarefa.TaskResponse;
+import br.com.dto.task.TaskRequest;
+import br.com.dto.task.TaskResponse;
 import br.com.service.TaskService;
 
 import java.util.List;

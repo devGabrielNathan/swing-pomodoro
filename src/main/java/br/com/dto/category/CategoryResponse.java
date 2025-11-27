@@ -1,4 +1,4 @@
-package br.com.dto.categoria;
+package br.com.dto.category;
 
 public class CategoryResponse {
     private Long id;

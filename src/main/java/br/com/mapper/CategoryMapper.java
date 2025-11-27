@@ -1,7 +1,7 @@
 package br.com.mapper;
 
-import br.com.dto.categoria.CategoryRequest;
-import br.com.dto.categoria.CategoryResponse;
+import br.com.dto.category.CategoryRequest;
+import br.com.dto.category.CategoryResponse;
 import br.com.model.Category;
 
 public class CategoryMapper {

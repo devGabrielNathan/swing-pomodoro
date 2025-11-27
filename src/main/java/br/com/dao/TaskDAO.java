@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class TaskDAO {
     private static final Logger logger = Logger.getLogger(TaskDAO.class.getName());
     private static final String FILE = "src/main/resources/tarefa.txt";
-    private static final short FIELDS = 6;
+    private static final short FIELDS = 4;
 
     // TODO: Adicionar tratamento de exceção para quando a tarefa não for encontrada
     public Task findById(Long id) {
@@ -76,9 +76,7 @@ public class TaskDAO {
         updated.setId(id);
         updated.setTitle(request.getTitle() != null ? request.getTitle() : t.getTitle());
         updated.setDescription(request.getDescription() != null ? request.getDescription() : t.getDescription());
-        updated.setCategory(request.getCategory() != null ? request.getCategory() : t.getCategory());
-        updated.setPlannedTotalPomodoros(request.getPlannedTotalPomodoros() != null ? request.getPlannedTotalPomodoros() : t.getPlannedTotalPomodoros());
-        updated.setCompletedTotalPomodoros(request.getCompletedTotalPomodoros() != null ? request.getCompletedTotalPomodoros() : t.getCompletedTotalPomodoros());
+        updated.setCategoryId(request.getCategoryId() != null ? request.getCategoryId() : t.getCategoryId());
         return updated;
     }
 
@@ -95,9 +93,7 @@ public class TaskDAO {
             String title = parts[1];
             String description = parts[2];
             Long category = Long.parseLong(parts[3]);
-            Long planned = Long.parseLong(parts[4]);
-            Long completed = Long.parseLong(parts[5]);
-            return new Task(id, title, description, category, planned, completed);
+            return new Task(id, title, description, category);
         } catch (Exception e) {
             logger.log(Level.INFO, "Falha ao analisar a linha da tarefa");
             logger.warning(e.getMessage());
@@ -109,6 +105,6 @@ public class TaskDAO {
         if (task == null) {
             return "";
         }
-        return task.getId() + "," + task.getTitle() + "," + task.getDescription() + "," + task.getCategory() + "," + task.getPlannedTotalPomodoros() + "," + task.getCompletedTotalPomodoros();
+        return task.getId() + "#" + task.getTitle() + "#" + task.getDescription() + "#" + task.getCategoryId();
     }
 }

@@ -139,7 +139,7 @@ public class PomodoroSessionDAO {
             status = Status.IN_PROGRESS.name();
         }
 
-        return pomodoroSession.getId() + "," + pomodoroSession.getTarefaId() + "," + pomodoroSession.getDuration() + "," + created + "," + updated + "," + status;
+        return pomodoroSession.getId() + "#" + pomodoroSession.getTarefaId() + "#" + pomodoroSession.getDuration() + "#" + created + "#" + updated + "#" + status;
     }
 
 }
