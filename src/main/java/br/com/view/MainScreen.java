@@ -11,12 +11,15 @@ import br.com.dto.category.CategoryRequest;
 import br.com.dto.category.CategoryResponse;
 import br.com.dto.task.TaskResponse;
 import br.com.dto.task.TaskRequest;
+import br.com.dto.pomodoroSession.PomodoroSessionRequest;
 import br.com.dto.pomodoroSession.PomodoroSessionResponse;
 import br.com.table.CategoryTableModel;
 import br.com.table.TaskTableModel;
 import br.com.table.PomodoroSessionTableModel;
-import java.awt.Component;
+import br.com.utils.Status;
 
+import java.awt.Component;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JComboBox;
@@ -41,6 +44,12 @@ public class MainScreen extends javax.swing.JFrame {
     private TaskTableModel taskTableModel;
     private CategoryTableModel categoryTableModel;
     private PomodoroSessionTableModel pomodoroSessionTableModel;
+    // Timer variables
+    private javax.swing.Timer pomodoroTimer;
+    private int totalSeconds;
+    private int elapsedSeconds;
+    private boolean isPaused;
+    private Date sessionStartTime;
 
     /**
      * Creates new form MainScreen
@@ -51,6 +60,7 @@ public class MainScreen extends javax.swing.JFrame {
         loadTasks();
         loadCategories();
         loadSessionPomodoro();
+        setTaskComboBox(boxTasks);
         setCategoryComboBox(categoryBox);
     }
 
@@ -123,11 +133,11 @@ public class MainScreen extends javax.swing.JFrame {
         categoryBox = new javax.swing.JComboBox<>();
         categoryRegisterScreen = new javax.swing.JPanel();
         categoryRegisterPanel = new javax.swing.JPanel();
+        lblNameCategory = new javax.swing.JLabel();
+        lblDescriptionCategory = new javax.swing.JLabel();
         txtNameCategory = new javax.swing.JTextField();
         txtDescriptionCategory = new javax.swing.JTextField();
         btnRegisterCategory = new javax.swing.JButton();
-        sessionRegisterScreen = new javax.swing.JPanel();
-        sessionRegisterPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -143,7 +153,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         Logo.setPreferredSize(new java.awt.Dimension(600, 150));
 
-        lblProgram.setFont(new java.awt.Font("sansserif", java.awt.Font.BOLD, 18)); // NOI18N
+        lblProgram.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         lblProgram.setText("Pomodoro");
         lblProgram.setAlignmentY(0.0F);
 
@@ -197,7 +207,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        CrudButtonsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, btnCrudCategories, btnCrudSessions, btnCrudTasks, btnStartProgram);
+        CrudButtonsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCrudCategories, btnCrudSessions, btnCrudTasks, btnStartProgram});
 
         CrudButtonsLayout.setVerticalGroup(
             CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +220,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(btnCrudCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCrudSessions, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout InitialScreenLayout = new javax.swing.GroupLayout(InitialScreen);
@@ -245,14 +255,16 @@ public class MainScreen extends javax.swing.JFrame {
 
         lblTask.setText("Tarefas");
 
+        boxTasks.addActionListener(this::boxTasksActionPerformed);
 
         btnStartTask.setText("Iniciar");
         btnStartTask.addActionListener(this::btnStartTaskActionPerformed);
 
         lblDuration.setText("Duração (min):");
 
+        txtTaskDuration.addActionListener(this::txtTaskDurationActionPerformed);
 
-        lblTimer.setFont(new java.awt.Font("JetBrainsMono NF", java.awt.Font.BOLD, 24)); // NOI18N
+        lblTimer.setFont(new java.awt.Font("JetBrainsMono NF", 1, 24)); // NOI18N
         lblTimer.setText("00:00");
         lblTimer.setEnabled(false);
         lblTimer.setPreferredSize(new java.awt.Dimension(148, 33));
@@ -289,7 +301,7 @@ public class MainScreen extends javax.swing.JFrame {
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGap(162, 162, 162)
+                .addGap(51, 51, 51)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(progressDuration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(contentLayout.createSequentialGroup()
@@ -313,12 +325,12 @@ public class MainScreen extends javax.swing.JFrame {
                             .addComponent(btnStopTask, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
-        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, btnReturnInitialTask, lblDuration, lblTask);
+        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnReturnInitialTask, lblDuration, lblTask});
 
-        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, boxTasks, btnExitProgram, txtTaskDuration);
+        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxTasks, btnExitProgram, txtTaskDuration});
 
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,14 +365,11 @@ public class MainScreen extends javax.swing.JFrame {
         StartProgram.setLayout(StartProgramLayout);
         StartProgramLayout.setHorizontalGroup(
             StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(StartProgramLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         StartProgramLayout.setVerticalGroup(
             StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(StartProgramLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StartProgramLayout.createSequentialGroup()
                 .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -614,7 +623,7 @@ public class MainScreen extends javax.swing.JFrame {
         sessionOptionsLayout.setVerticalGroup(
             sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sessionOptionsLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReturnSession)
                     .addComponent(btnExitSession))
@@ -710,7 +719,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(0, 266, Short.MAX_VALUE))
         );
 
-        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, btnRegisterTask, lblCategory, lblDescription, lblTitle, txtDescriptionTask, txtTitleTask);
+        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegisterTask, lblCategory, lblDescription, lblTitle, txtDescriptionTask, txtTitleTask});
 
         taskRegisterPanelLayout.setVerticalGroup(
             taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -749,6 +758,9 @@ public class MainScreen extends javax.swing.JFrame {
 
         SwitchPanels.addTab("tab5", taskRegisterScreen);
 
+        lblNameCategory.setText("Nome");
+
+        lblDescriptionCategory.setText("Descrição");
 
         txtNameCategory.addActionListener(this::txtNameCategoryActionPerformed);
 
@@ -766,18 +778,24 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGap(253, 253, 253)
                 .addGroup(categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDescriptionCategory)
                     .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegisterCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 266, Short.MAX_VALUE))
         );
 
-        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, txtDescriptionCategory, txtNameCategory);
+        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtDescriptionCategory, txtNameCategory});
 
         categoryRegisterPanelLayout.setVerticalGroup(
             categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
                 .addGap(128, 128, 128)
+                .addComponent(lblNameCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDescriptionCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -802,24 +820,6 @@ public class MainScreen extends javax.swing.JFrame {
 
         SwitchPanels.addTab("tab5", categoryRegisterScreen);
 
-
-        javax.swing.GroupLayout sessionRegisterScreenLayout = new javax.swing.GroupLayout(sessionRegisterScreen);
-        sessionRegisterScreen.setLayout(sessionRegisterScreenLayout);
-        sessionRegisterScreenLayout.setHorizontalGroup(
-            sessionRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sessionRegisterScreenLayout.createSequentialGroup()
-                .addComponent(sessionRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        sessionRegisterScreenLayout.setVerticalGroup(
-            sessionRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sessionRegisterScreenLayout.createSequentialGroup()
-                .addComponent(sessionRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        SwitchPanels.addTab("tab5", sessionRegisterScreen);
-
         getContentPane().add(SwitchPanels, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -36, 600, 430));
 
         pack();
@@ -827,6 +827,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     // ------------------------------------------ Initial Screen ---------------------------------------------------- //
     private void btnStartProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartProgramActionPerformed
+        setTaskComboBox(boxTasks);
         switchScreens("Program", SwitchPanels);
     }//GEN-LAST:event_btnStartProgramActionPerformed
 
@@ -851,14 +852,117 @@ public class MainScreen extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitProgramActionPerformed
 
+    private void boxTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTasksActionPerformed
+        // TODO: Implementar lógica se necessário
+    }//GEN-LAST:event_boxTasksActionPerformed
+
+    private void txtTaskDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaskDurationActionPerformed
+        // TODO: Implementar lógica se necessário
+    }//GEN-LAST:event_txtTaskDurationActionPerformed
+
     private void btnStartTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartTaskActionPerformed
+        // Validar se uma tarefa foi selecionada
+        TaskResponse selectedTask = (TaskResponse) boxTasks.getSelectedItem();
+        if (selectedTask == null) {
+            JOptionPane.showMessageDialog(this, "Selecione uma tarefa!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validar duração
+        String durationText = txtTaskDuration.getText().trim();
+        if (durationText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Defina a duração em minutos!", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            int durationMinutes = Integer.parseInt(durationText);
+            if (durationMinutes <= 0) {
+                JOptionPane.showMessageDialog(this, "A duração deve ser maior que zero!", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Se o timer já existe e está pausado, retomar
+            if (isPaused && pomodoroTimer != null) {
+                isPaused = false;
+                pomodoroTimer.start();
+                btnStartTask.setEnabled(false);
+                btnPauseTask.setEnabled(true);
+                btnStopTask.setEnabled(true);
+                txtStatus.setText("Status: Em execução");
+                return;
+            }
+
+            // Iniciar novo timer
+            totalSeconds = durationMinutes * 60;
+            elapsedSeconds = 0;
+            isPaused = false;
+            sessionStartTime = new Date(); // Registrar horário de início
+
+            // Configurar progress bar
+            progressDuration.setMaximum(totalSeconds);
+            progressDuration.setValue(0);
+
+            // Criar e iniciar timer
+            pomodoroTimer = new javax.swing.Timer(1000, e -> {
+                elapsedSeconds++;
+                updateTimerDisplay();
+                progressDuration.setValue(elapsedSeconds);
+
+                if (elapsedSeconds >= totalSeconds) {
+                    finishPomodoro();
+                }
+            });
+
+            pomodoroTimer.start();
+
+            // Atualizar UI
+            btnStartTask.setEnabled(false);
+            btnPauseTask.setEnabled(true);
+            btnStopTask.setEnabled(true);
+            boxTasks.setEnabled(false);
+            txtTaskDuration.setEnabled(false);
+            txtStatus.setText("Status: Em execução");
+            lblTimer.setEnabled(true);
+            updateTimerDisplay();
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Duração inválida! Digite apenas números.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnStartTaskActionPerformed
 
     private void btnPauseTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseTaskActionPerformed
-        switchScreens("Initial", SwitchPanels);
+        if (pomodoroTimer != null && pomodoroTimer.isRunning()) {
+            pomodoroTimer.stop();
+            isPaused = true;
+            btnStartTask.setEnabled(true);
+            btnPauseTask.setEnabled(false);
+            txtStatus.setText("Status: Pausado");
+        }
     }//GEN-LAST:event_btnPauseTaskActionPerformed
 
     private void btnStopTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopTaskActionPerformed
+        if (pomodoroTimer != null) {
+            pomodoroTimer.stop();
+            pomodoroTimer = null;
+        }
+
+        // Resetar variáveis
+        elapsedSeconds = 0;
+        totalSeconds = 0;
+        isPaused = false;
+        sessionStartTime = null;
+
+        // Resetar UI
+        lblTimer.setText("00:00");
+        lblTimer.setEnabled(false);
+        progressDuration.setValue(0);
+        txtStatus.setText("Status: -");
+        btnStartTask.setEnabled(true);
+        btnPauseTask.setEnabled(false);
+        btnStopTask.setEnabled(false);
+        boxTasks.setEnabled(true);
+        txtTaskDuration.setEnabled(true);
     }//GEN-LAST:event_btnStopTaskActionPerformed
 
     // ------------------------------------------ Task Screen ------------------------------------------------------- //
@@ -868,6 +972,8 @@ public class MainScreen extends javax.swing.JFrame {
         txtTitleTask.setText("");
         txtDescriptionTask.setText("");
         btnRegisterTask.setText("Criar");
+        // Atualiza o combo box com as categorias mais recentes
+        setCategoryComboBox(categoryBox);
         // reseta seleção de categoria
         if (categoryBox.getItemCount() > 0) {
             categoryBox.setSelectedIndex(0);
@@ -901,6 +1007,9 @@ public class MainScreen extends javax.swing.JFrame {
         taskResponse.setDescription(task.getDescription());
         taskResponse.setCategoryId(task.getCategoryId());
 
+        // Atualiza o combo box com as categorias mais recentes
+        setCategoryComboBox(categoryBox);
+
         // Seleciona a categoria correta no combo box (se existir)
         if (task.getCategoryId() != null) {
             for (int i = 0; i < categoryBox.getItemCount(); i++) {
@@ -933,6 +1042,7 @@ public class MainScreen extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(this, "Excluir tarefa?") == 0) {
             taskController.delete(id);
             loadTasks();
+            setTaskComboBox(boxTasks);
         }
     }//GEN-LAST:event_btnDeleteTaskActionPerformed
 
@@ -944,13 +1054,15 @@ public class MainScreen extends javax.swing.JFrame {
         switchScreens("Initial", SwitchPanels);
     }//GEN-LAST:event_btnReturnTaskActionPerformed
 
-    // ------------------------------------------ Task Register ----------------------------------------------------- //
     private void txtTitleTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleTaskActionPerformed
+        // TODO: Implementar lógica se necessário
     }//GEN-LAST:event_txtTitleTaskActionPerformed
 
     private void txtDescriptionTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescriptionTaskActionPerformed
+        // TODO: Implementar lógica se necessário
     }//GEN-LAST:event_txtDescriptionTaskActionPerformed
 
+    // ------------------------------------------ Task Register ----------------------------------------------------- //
     private void btnRegisterTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterTaskActionPerformed
         String title = txtTitleTask.getText().trim();
         String description = txtDescriptionTask.getText().trim();
@@ -982,6 +1094,7 @@ public class MainScreen extends javax.swing.JFrame {
                 btnRegisterTask.setText("Criar");
             }
             refreshAllTables();
+            setTaskComboBox(boxTasks);
             switchScreens("Tasks", SwitchPanels);
 
         } catch (Exception e) {
@@ -1044,6 +1157,7 @@ public class MainScreen extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(this, "Excluir categoria?") == 0) {
             categoryController.delete(id);
             loadCategories();
+            setCategoryComboBox(categoryBox);
         }
     }//GEN-LAST:event_btnDeleteCategoryActionPerformed
 
@@ -1087,6 +1201,7 @@ public class MainScreen extends javax.swing.JFrame {
             }
 
             refreshAllTables();
+            setCategoryComboBox(categoryBox);
             switchScreens("Categories", SwitchPanels);
 
         } catch (Exception e) {
@@ -1101,8 +1216,75 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturnSessionActionPerformed
 
     private void btnExitSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitSessionActionPerformed
+        System.exit(0);
     }//GEN-LAST:event_btnExitSessionActionPerformed
 
+    // -------------------------------------------------- Timer Methods --------------------------------------------- //
+    private void updateTimerDisplay() {
+        int remainingSeconds = totalSeconds - elapsedSeconds;
+        int minutes = remainingSeconds / 60;
+        int seconds = remainingSeconds % 60;
+        lblTimer.setText(String.format("%02d:%02d", minutes, seconds));
+    }
+
+    private void finishPomodoro() {
+        if (pomodoroTimer != null) {
+            pomodoroTimer.stop();
+            pomodoroTimer = null;
+        }
+
+        TaskResponse selectedTask = (TaskResponse) boxTasks.getSelectedItem();
+        String taskName = selectedTask != null ? selectedTask.getTitle() : "Tarefa";
+
+        // Salvar sessão Pomodoro no banco de dados
+        if (selectedTask != null && sessionStartTime != null) {
+            try {
+                PomodoroSessionRequest sessionRequest = new PomodoroSessionRequest();
+                sessionRequest.setTarefaId(selectedTask.getId());
+                sessionRequest.setDuration((long) totalSeconds); // Duração em segundos
+                sessionRequest.setCreatedAt(sessionStartTime);
+                sessionRequest.setUpdatedAt(new Date());
+                sessionRequest.setStatus(Status.COMPLETED);
+
+                pomodoroSessionController.create(sessionRequest);
+
+                // Atualizar a tabela de sessões
+                loadSessionPomodoro();
+
+                logger.info("Sessão Pomodoro salva com sucesso para a tarefa: " + taskName);
+            } catch (Exception e) {
+                logger.severe("Erro ao salvar sessão Pomodoro: " + e.getMessage());
+                JOptionPane.showMessageDialog(this,
+                    "Erro ao salvar a sessão Pomodoro: " + e.getMessage(),
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
+        JOptionPane.showMessageDialog(this,
+            "Parabéns! Você completou o Pomodoro da tarefa: " + taskName,
+            "Pomodoro Concluído!",
+            JOptionPane.INFORMATION_MESSAGE);
+
+        // Resetar UI
+        lblTimer.setText("00:00");
+        lblTimer.setEnabled(false);
+        progressDuration.setValue(0);
+        txtStatus.setText("Status: Concluído");
+        btnStartTask.setEnabled(true);
+        btnPauseTask.setEnabled(false);
+        btnStopTask.setEnabled(false);
+        boxTasks.setEnabled(true);
+        txtTaskDuration.setEnabled(true);
+
+        // Resetar variáveis
+        elapsedSeconds = 0;
+        totalSeconds = 0;
+        isPaused = false;
+        sessionStartTime = null;
+    }
+
+    // --------------------------------------------------- Helpers -------------------------------------------------- //
     private void loadTasks() {
         List<TaskResponse> lista = taskController.findAll();
         taskTableModel = new TaskTableModel(lista);
@@ -1134,25 +1316,46 @@ public class MainScreen extends javax.swing.JFrame {
             comboBox.addItem(cat);
         }
 
-        // Opcional: exibir nome da categoria no combo
-        comboBox.setRenderer(new DefaultListCellRenderer(){
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-            if (value instanceof CategoryResponse) {
-                setText(((CategoryResponse) value).getName());
-            }
-            return this;
-            }
+        comboBox.setRenderer(new DefaultListCellRenderer() {
+                                 @Override
+                                 public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                                     super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                                     if (value instanceof CategoryResponse) {
+                                         setText(((CategoryResponse) value).getName());
+                                     }
+                                     return this;
+                                 }
+                             }
+        );
+    }
+
+    private void setTaskComboBox(JComboBox<TaskResponse> comboBox) {
+        comboBox.removeAllItems();
+        List<TaskResponse> tasks = taskController.findAll();
+        for (TaskResponse task : tasks) {
+            comboBox.addItem(task);
         }
-    );
-}
-    
+
+        comboBox.setRenderer(new DefaultListCellRenderer() {
+                                 @Override
+                                 public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                                     super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                                     if (value instanceof TaskResponse) {
+                                         setText(((TaskResponse) value).getTitle());
+                                     }
+                                     return this;
+                                 }
+                             }
+        );
+    }
+
     private void switchScreens(String currentScreen, JTabbedPane jTabbedPane) {
-        switch(currentScreen) {
-            case "Initial": jTabbedPane.setSelectedIndex(0);
+        switch (currentScreen) {
+            case "Initial":
+                jTabbedPane.setSelectedIndex(0);
                 break;
-            case "Program": jTabbedPane.setSelectedIndex(1);
+            case "Program":
+                jTabbedPane.setSelectedIndex(1);
                 break;
             case "Tasks":
                 jTabbedPane.setSelectedIndex(2);
@@ -1169,9 +1372,6 @@ public class MainScreen extends javax.swing.JFrame {
             case "CategoryRegister":
                 jTabbedPane.setSelectedIndex(6);
                 break;
-            case "SessionRegister":
-                jTabbedPane.setSelectedIndex(7);
-                break;
         }
     }
 
@@ -1182,7 +1382,7 @@ public class MainScreen extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -1209,7 +1409,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel StartProgram;
     private javax.swing.JTabbedPane SwitchPanels;
     private javax.swing.JPanel TaskScreen;
-    private javax.swing.JComboBox<String> boxTasks;
+    private javax.swing.JComboBox<TaskResponse> boxTasks;
     private javax.swing.JButton btnCreateCategory;
     private javax.swing.JButton btnCreateTask;
     private javax.swing.JButton btnCrudCategories;
@@ -1243,7 +1443,9 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblDescriptionCategory;
     private javax.swing.JLabel lblDuration;
+    private javax.swing.JLabel lblNameCategory;
     private javax.swing.JLabel lblProgram;
     private javax.swing.JLabel lblTask;
     private javax.swing.JLabel lblTimer;
@@ -1251,8 +1453,6 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JProgressBar progressDuration;
     private javax.swing.JPanel sessionContent;
     private javax.swing.JPanel sessionOptions;
-    private javax.swing.JPanel sessionRegisterPanel;
-    private javax.swing.JPanel sessionRegisterScreen;
     private javax.swing.JScrollPane sessionScrollPane;
     private javax.swing.JTable sessionTable;
     private javax.swing.JPanel taskContent;
