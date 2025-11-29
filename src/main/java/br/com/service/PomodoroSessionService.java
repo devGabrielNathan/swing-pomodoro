@@ -26,7 +26,10 @@ public class PomodoroSessionService {
 
     public List<PomodoroSessionResponse> findAll() {
         List<PomodoroSession> sessions = pomodoroSessionDAO.findAll();
-        return sessions.stream().map(pomodoroSessionMapper::toResponse).toList();
+        return sessions.stream()
+                .map(pomodoroSessionMapper::toResponse)
+                .filter(Objects::nonNull)
+                .toList();
     }
 
     public PomodoroSessionResponse create(PomodoroSessionRequest request) {

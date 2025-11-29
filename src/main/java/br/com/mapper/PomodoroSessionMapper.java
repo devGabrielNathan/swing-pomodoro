@@ -3,7 +3,6 @@ package br.com.mapper;
 import br.com.dto.pomodoroSession.PomodoroSessionRequest;
 import br.com.dto.pomodoroSession.PomodoroSessionResponse;
 import br.com.model.PomodoroSession;
-import br.com.utils.Status;
 
 import java.util.Date;
 
@@ -18,8 +17,6 @@ public class PomodoroSessionMapper {
         response.setTarefaId(entity.getTarefaId());
         response.setDuration(entity.getDuration());
         response.setCreatedAt(entity.getCreatedAt());
-        response.setUpdatedAt(entity.getUpdatedAt());
-        response.setStatus(entity.getStatus());
         return response;
     }
 
@@ -31,8 +28,6 @@ public class PomodoroSessionMapper {
         entity.setTarefaId(request.getTarefaId());
         entity.setDuration(request.getDuration());
         entity.setCreatedAt(request.getCreatedAt() != null ? request.getCreatedAt() : new Date());
-        entity.setUpdatedAt(request.getUpdatedAt() != null ? request.getUpdatedAt() : new Date());
-        entity.setStatus(request.getStatus() != null ? request.getStatus() : Status.IN_PROGRESS);
         return entity;
     }
 }

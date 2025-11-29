@@ -28,7 +28,7 @@ public class TaskDAO {
                 logger.warning("Requisição vazia");
                 return null;
             }
-            long nextId = FileHelper.getNextId(FILE, FIELDS);
+            Long nextId = FileHelper.getNextId(FILE, FIELDS);
             request.setId(nextId);
             FileHelper.appendLine(FILE, formatTask(request));
             return findById(nextId);
@@ -89,10 +89,10 @@ public class TaskDAO {
             if (parts.length < FIELDS) {
                 return null;
             }
-            Long id = Long.parseLong(parts[0]);
+            Long id = Long.valueOf(parts[0]);
             String title = parts[1];
             String description = parts[2];
-            Long category = Long.parseLong(parts[3]);
+            Long category = Long.valueOf(parts[3]);
             return new Task(id, title, description, category);
         } catch (Exception e) {
             logger.log(Level.INFO, "Falha ao analisar a linha da tarefa");

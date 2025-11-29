@@ -15,8 +15,8 @@ import javax.swing.table.AbstractTableModel;
 public class PomodoroSessionTableModel extends AbstractTableModel {
     private final List<PomodoroSessionResponse> sessions;
     private final String[] colunas = {
-        "ID", "Tarefa", "Duração", 
-        "Criado em", "Atualizado em", "Status"
+        "ID", "Tarefa", "Duração (min)",
+        "Criado em"
     };
 
     public PomodoroSessionTableModel(List<PomodoroSessionResponse> sessions) {
@@ -41,19 +41,19 @@ public class PomodoroSessionTableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         PomodoroSessionResponse s = sessions.get(rowIndex);
-        return switch (columnIndex) {
-            case 0 -> s.getId();
-            case 1 -> s.getTarefaId();
-            case 2 -> s.getDuration();
-            case 3 -> s.getCreatedAt();
-            case 4 -> s.getUpdatedAt();
-            case 5 -> s.getStatus();
-            default -> null;
-        };
-    }
-
-    public PomodoroSessionResponse get(int row) {
-        return sessions.get(row);
+        switch (columnIndex) {
+            case 0:
+                return s.getId();
+            case 1:
+                return s.getTarefaId();
+            case 2:
+                // Converter de segundos para minutos
+                return (Object) (s.getDuration() != null ? s.getDuration() / 60 : 0L);
+            case 3:
+                return s.getCreatedAt();
+            default:
+                return null;
+        }
     }
 
     public void add(PomodoroSessionResponse s) {
@@ -64,11 +64,6 @@ public class PomodoroSessionTableModel extends AbstractTableModel {
     public void update(int row, PomodoroSessionResponse s) {
         sessions.set(row, s);
         fireTableRowsUpdated(row, row);
-    }
-
-    public void remove(int row) {
-        sessions.remove(row);
-        fireTableRowsDeleted(row, row);
     }
 }
 

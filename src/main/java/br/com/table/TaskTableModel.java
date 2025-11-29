@@ -70,10 +70,6 @@ public class TaskTableModel extends AbstractTableModel {
         }
     }
 
-    public TaskResponse get(int row) {
-        return tasks.get(row);
-    }
-
     public void add(TaskResponse t) {
         tasks.add(t);
         fireTableRowsInserted(tasks.size() - 1, tasks.size() - 1);

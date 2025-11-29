@@ -90,7 +90,7 @@ public class FileHelper {
         }
     }
 
-    public static long getNextId(String filePath, int expectedFields) {
+    public static Long getNextId(String filePath, int expectedFields) {
         try {
             List<String> lines = readLines(filePath);
             long max = 0L;
@@ -100,7 +100,7 @@ public class FileHelper {
                 long id = Long.parseLong(parts[0]);
                 if (id > max) max = id;
             }
-            return max + 1;
+            return (Long) (max + 1);
         } catch (Exception e) {
             throw new IntegrationException();
         }

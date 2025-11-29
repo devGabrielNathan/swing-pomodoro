@@ -2,19 +2,17 @@ package br.com.dao;
 
 import br.com.exceptions.IntegrationException;
 import br.com.model.PomodoroSession;
-import br.com.utils.Status;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PomodoroSessionDAO {
     private static final Logger logger = Logger.getLogger(PomodoroSessionDAO.class.getName());
     private static final String FILE = "src/main/resources/sessao_pomodoro.txt";
-    private static final short FIELDS = 6;
+    private static final short FIELDS = 4;
 
     // TODO: Adicionar tratamento de exceção para quando a Sessão do Pomodoro não for encontrada
     public PomodoroSession findById(Long id) {
@@ -32,7 +30,7 @@ public class PomodoroSessionDAO {
                 logger.warning("Request is null.");
                 return null;
             }
-            long nextId = FileHelper.getNextId(FILE, FIELDS);
+            Long nextId = FileHelper.getNextId(FILE, FIELDS);
             request.setId(nextId);
             FileHelper.appendLine(FILE, formatPomodoroSession(request));
             return findById(nextId);
@@ -82,8 +80,6 @@ public class PomodoroSessionDAO {
         updated.setTarefaId(request.getTarefaId() != null ? request.getTarefaId() : pomodoroSession.getTarefaId());
         updated.setDuration(request.getDuration() != null ? request.getDuration() : pomodoroSession.getDuration());
         updated.setCreatedAt(request.getCreatedAt() != null ? request.getCreatedAt() : pomodoroSession.getCreatedAt());
-        updated.setUpdatedAt(request.getUpdatedAt() != null ? request.getUpdatedAt() : new Date());
-        updated.setStatus(request.getStatus() != null ? request.getStatus() : pomodoroSession.getStatus());
         return updated;
     }
 
@@ -98,48 +94,27 @@ public class PomodoroSessionDAO {
                 return null;
             }
 
-            Long currentId = Long.parseLong(parts[0]);
-            Long tarefaId  = Long.parseLong(parts[1]);
-            Long duration  = Long.parseLong(parts[2]);
+            Long currentId = Long.valueOf(parts[0]);
+            Long tarefaId  = Long.valueOf(parts[1]);
+            Long duration  = Long.valueOf(parts[2]);
             SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date createdAt = formatDate.parse(parts[3]);
-            Date updatedAt = formatDate.parse(parts[4]);
-            Status status = Status.valueOf(parts[5]);
-            return new PomodoroSession(currentId, tarefaId, duration, createdAt, updatedAt, status);
+            return new PomodoroSession(currentId, tarefaId, duration, createdAt);
         } catch (Exception e) {
-            logger.log(Level.INFO, "Falha ao analisar a linha da Sessão do Pomodoro");
-            logger.warning(e.getMessage());
+            logger.log(Level.WARNING, "Falha ao analisar linha", e);
             return null;
         }
     }
 
     private String formatPomodoroSession(PomodoroSession pomodoroSession) {
-        long created, updated;
-        String status;
-
         if (pomodoroSession == null) {
             return "";
         }
 
-        if (Objects.nonNull(pomodoroSession.getId())) {
-            created = pomodoroSession.getCreatedAt().getTime();
-        } else {
-            created = new Date().getTime();
-        }
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date createdAt = pomodoroSession.getCreatedAt() != null ? pomodoroSession.getCreatedAt() : new Date();
+        String formattedDate = formatDate.format(createdAt);
 
-        if (Objects.nonNull(pomodoroSession.getUpdatedAt())) {
-            updated = pomodoroSession.getUpdatedAt().getTime();
-        } else {
-            updated = new Date().getTime();
-        }
-
-        if (Objects.nonNull(pomodoroSession.getStatus())) {
-            status = pomodoroSession.getStatus().name();
-        } else {
-            status = Status.IN_PROGRESS.name();
-        }
-
-        return pomodoroSession.getId() + "#" + pomodoroSession.getTarefaId() + "#" + pomodoroSession.getDuration() + "#" + created + "#" + updated + "#" + status;
+        return pomodoroSession.getId() + "#" + pomodoroSession.getTarefaId() + "#" + pomodoroSession.getDuration() + "#" + formattedDate;
     }
-
 }

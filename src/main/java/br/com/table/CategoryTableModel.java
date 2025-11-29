@@ -47,10 +47,6 @@ public class CategoryTableModel extends AbstractTableModel {
         };
     }
 
-    public CategoryResponse get(int row) {
-        return categories.get(row);
-    }
-
     public void add(CategoryResponse c) {
         categories.add(c);
         fireTableRowsInserted(categories.size() - 1, categories.size() - 1);

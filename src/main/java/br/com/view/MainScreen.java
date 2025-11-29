@@ -16,7 +16,6 @@ import br.com.dto.pomodoroSession.PomodoroSessionResponse;
 import br.com.table.CategoryTableModel;
 import br.com.table.TaskTableModel;
 import br.com.table.PomodoroSessionTableModel;
-import br.com.utils.Status;
 
 import java.awt.Component;
 import java.util.Date;
@@ -160,18 +159,18 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout LogoLayout = new javax.swing.GroupLayout(Logo);
         Logo.setLayout(LogoLayout);
         LogoLayout.setHorizontalGroup(
-            LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogoLayout.createSequentialGroup()
-                .addContainerGap(254, Short.MAX_VALUE)
-                .addComponent(lblProgram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(255, Short.MAX_VALUE))
+                LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(LogoLayout.createSequentialGroup()
+                                .addContainerGap(254, Short.MAX_VALUE)
+                                .addComponent(lblProgram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap(255, Short.MAX_VALUE))
         );
         LogoLayout.setVerticalGroup(
-            LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoLayout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
-                .addComponent(lblProgram)
-                .addContainerGap(44, Short.MAX_VALUE))
+                LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoLayout.createSequentialGroup()
+                                .addContainerGap(73, Short.MAX_VALUE)
+                                .addComponent(lblProgram)
+                                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         CrudButtons.setPreferredSize(new java.awt.Dimension(600, 250));
@@ -196,50 +195,50 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout CrudButtonsLayout = new javax.swing.GroupLayout(CrudButtons);
         CrudButtons.setLayout(CrudButtonsLayout);
         CrudButtonsLayout.setHorizontalGroup(
-            CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CrudButtonsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(btnCrudSessions, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrudCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrudTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnStartProgram))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CrudButtonsLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                        .addComponent(btnCrudSessions, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnCrudCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnCrudTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnStartProgram))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        CrudButtonsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCrudCategories, btnCrudSessions, btnCrudTasks, btnStartProgram});
+        CrudButtonsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{btnCrudCategories, btnCrudSessions, btnCrudTasks, btnStartProgram});
 
         CrudButtonsLayout.setVerticalGroup(
-            CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CrudButtonsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnStartProgram)
-                .addGap(9, 9, 9)
-                .addComponent(btnCrudTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCrudCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCrudSessions, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                CrudButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CrudButtonsLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnStartProgram)
+                                .addGap(9, 9, 9)
+                                .addComponent(btnCrudTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCrudCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCrudSessions, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout InitialScreenLayout = new javax.swing.GroupLayout(InitialScreen);
         InitialScreen.setLayout(InitialScreenLayout);
         InitialScreenLayout.setHorizontalGroup(
-            InitialScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InitialScreenLayout.createSequentialGroup()
-                .addGroup(InitialScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CrudButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                InitialScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InitialScreenLayout.createSequentialGroup()
+                                .addGroup(InitialScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(CrudButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, 0))
         );
         InitialScreenLayout.setVerticalGroup(
-            InitialScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InitialScreenLayout.createSequentialGroup()
-                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CrudButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                InitialScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InitialScreenLayout.createSequentialGroup()
+                                .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CrudButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0))
         );
 
         SwitchPanels.addTab("tab4", InitialScreen);
@@ -299,64 +298,64 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(progressDuration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(contentLayout.createSequentialGroup()
-                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentLayout.createSequentialGroup()
-                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTask)
-                                    .addComponent(lblDuration))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(boxTasks, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtTaskDuration)))
-                            .addGroup(contentLayout.createSequentialGroup()
-                                .addComponent(btnReturnInitialTask, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExitProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(50, 50, 50)
-                        .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnStartTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPauseTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnStopTask, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
+                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                                .addContainerGap(154, Short.MAX_VALUE)
+                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(progressDuration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(contentLayout.createSequentialGroup()
+                                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(contentLayout.createSequentialGroup()
+                                                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(lblTask)
+                                                                        .addComponent(lblDuration))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(boxTasks, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(txtTaskDuration)))
+                                                        .addGroup(contentLayout.createSequentialGroup()
+                                                                .addComponent(btnReturnInitialTask, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(btnExitProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(50, 50, 50)
+                                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(btnStartTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(btnPauseTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(btnStopTask, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(153, Short.MAX_VALUE))
         );
 
-        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnReturnInitialTask, lblDuration, lblTask});
+        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{btnReturnInitialTask, lblDuration, lblTask});
 
-        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxTasks, btnExitProgram, txtTaskDuration});
+        contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{boxTasks, btnExitProgram, txtTaskDuration});
 
         contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(progressDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boxTasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTask)
-                    .addComponent(btnStartTask))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTaskDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDuration)
-                    .addComponent(btnPauseTask))
-                .addGap(0, 37, Short.MAX_VALUE)
-                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReturnInitialTask)
-                    .addComponent(btnExitProgram)
-                    .addComponent(btnStopTask))
-                .addContainerGap(112, Short.MAX_VALUE))
+                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(contentLayout.createSequentialGroup()
+                                .addContainerGap(98, Short.MAX_VALUE)
+                                .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(progressDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(boxTasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblTask)
+                                        .addComponent(btnStartTask))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txtTaskDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblDuration)
+                                        .addComponent(btnPauseTask))
+                                .addGap(0, 37, Short.MAX_VALUE)
+                                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnReturnInitialTask)
+                                        .addComponent(btnExitProgram)
+                                        .addComponent(btnStopTask))
+                                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         btnStartTask.getAccessibleContext().setAccessibleDescription("");
@@ -364,14 +363,14 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout StartProgramLayout = new javax.swing.GroupLayout(StartProgram);
         StartProgram.setLayout(StartProgramLayout);
         StartProgramLayout.setHorizontalGroup(
-            StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         StartProgramLayout.setVerticalGroup(
-            StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StartProgramLayout.createSequentialGroup()
-                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, StartProgramLayout.createSequentialGroup()
+                                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         SwitchPanels.addTab("tab1", StartProgram);
@@ -401,35 +400,35 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout taskOptionsLayout = new javax.swing.GroupLayout(taskOptions);
         taskOptions.setLayout(taskOptionsLayout);
         taskOptionsLayout.setHorizontalGroup(
-            taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(taskOptionsLayout.createSequentialGroup()
-                        .addComponent(btnReturnTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExitTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(taskOptionsLayout.createSequentialGroup()
-                        .addComponent(btnCreateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeleteTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(342, Short.MAX_VALUE))
+                taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(taskOptionsLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(taskOptionsLayout.createSequentialGroup()
+                                                .addComponent(btnReturnTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnExitTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(taskOptionsLayout.createSequentialGroup()
+                                                .addComponent(btnCreateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnUpdateTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnDeleteTask, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(342, Short.MAX_VALUE))
         );
         taskOptionsLayout.setVerticalGroup(
-            taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskOptionsLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReturnTask)
-                    .addComponent(btnExitTask))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateTask)
-                    .addComponent(btnDeleteTask)
-                    .addComponent(btnCreateTask))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskOptionsLayout.createSequentialGroup()
+                                .addContainerGap(32, Short.MAX_VALUE)
+                                .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnReturnTask)
+                                        .addComponent(btnExitTask))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnUpdateTask)
+                                        .addComponent(btnDeleteTask)
+                                        .addComponent(btnCreateTask))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         taskContent.setAlignmentX(0.0F);
@@ -445,44 +444,41 @@ public class MainScreen extends javax.swing.JFrame {
 
         taskTable.setAlignmentX(0.0F);
         taskTable.setAlignmentY(0.0F);
-        taskTable.setMaximumSize(new java.awt.Dimension(600, 80));
-        taskTable.setMinimumSize(new java.awt.Dimension(600, 80));
-        taskTable.setPreferredSize(new java.awt.Dimension(600, 300));
         taskScrollPane.setViewportView(taskTable);
 
         javax.swing.GroupLayout taskContentLayout = new javax.swing.GroupLayout(taskContent);
         taskContent.setLayout(taskContentLayout);
         taskContentLayout.setHorizontalGroup(
-            taskContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskContentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
-                .addContainerGap())
+                taskContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(taskContentLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         taskContentLayout.setVerticalGroup(
-            taskContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskContentLayout.createSequentialGroup()
-                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                taskContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(taskContentLayout.createSequentialGroup()
+                                .addComponent(taskScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout TaskScreenLayout = new javax.swing.GroupLayout(TaskScreen);
         TaskScreen.setLayout(TaskScreenLayout);
         TaskScreenLayout.setHorizontalGroup(
-            TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TaskScreenLayout.createSequentialGroup()
-                .addGroup(TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(TaskScreenLayout.createSequentialGroup()
+                                .addGroup(TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12))
         );
         TaskScreenLayout.setVerticalGroup(
-            TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TaskScreenLayout.createSequentialGroup()
-                .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                TaskScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(TaskScreenLayout.createSequentialGroup()
+                                .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         SwitchPanels.addTab("tab2", TaskScreen);
@@ -511,35 +507,35 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout categoryOptionsLayout = new javax.swing.GroupLayout(categoryOptions);
         categoryOptions.setLayout(categoryOptionsLayout);
         categoryOptionsLayout.setHorizontalGroup(
-            categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoryOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(categoryOptionsLayout.createSequentialGroup()
-                        .addComponent(btnReturnCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExitCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(categoryOptionsLayout.createSequentialGroup()
-                        .addComponent(btnCreateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeleteCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(342, Short.MAX_VALUE))
+                categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(categoryOptionsLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(categoryOptionsLayout.createSequentialGroup()
+                                                .addComponent(btnReturnCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnExitCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(categoryOptionsLayout.createSequentialGroup()
+                                                .addComponent(btnCreateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnUpdateCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnDeleteCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(342, Short.MAX_VALUE))
         );
         categoryOptionsLayout.setVerticalGroup(
-            categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, categoryOptionsLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReturnCategory)
-                    .addComponent(btnExitCategory))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateCategory)
-                    .addComponent(btnDeleteCategory)
-                    .addComponent(btnCreateCategory))
-                .addContainerGap(12, Short.MAX_VALUE))
+                categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, categoryOptionsLayout.createSequentialGroup()
+                                .addContainerGap(32, Short.MAX_VALUE)
+                                .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnReturnCategory)
+                                        .addComponent(btnExitCategory))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnUpdateCategory)
+                                        .addComponent(btnDeleteCategory)
+                                        .addComponent(btnCreateCategory))
+                                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         categoryContent.setAlignmentX(0.0F);
@@ -555,44 +551,41 @@ public class MainScreen extends javax.swing.JFrame {
 
         categoryTable.setAlignmentX(0.0F);
         categoryTable.setAlignmentY(0.0F);
-        categoryTable.setMaximumSize(new java.awt.Dimension(600, 80));
-        categoryTable.setMinimumSize(new java.awt.Dimension(600, 80));
-        categoryTable.setPreferredSize(new java.awt.Dimension(600, 300));
         categoryScrollPane.setViewportView(categoryTable);
 
         javax.swing.GroupLayout categoryContentLayout = new javax.swing.GroupLayout(categoryContent);
         categoryContent.setLayout(categoryContentLayout);
         categoryContentLayout.setHorizontalGroup(
-            categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoryContentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(categoryContentLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
+                                .addContainerGap(18, Short.MAX_VALUE))
         );
         categoryContentLayout.setVerticalGroup(
-            categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoryContentLayout.createSequentialGroup()
-                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(categoryContentLayout.createSequentialGroup()
+                                .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout CategoryScreenLayout = new javax.swing.GroupLayout(CategoryScreen);
         CategoryScreen.setLayout(CategoryScreenLayout);
         CategoryScreenLayout.setHorizontalGroup(
-            CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CategoryScreenLayout.createSequentialGroup()
-                .addGroup(CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CategoryScreenLayout.createSequentialGroup()
+                                .addGroup(CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12))
         );
         CategoryScreenLayout.setVerticalGroup(
-            CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CategoryScreenLayout.createSequentialGroup()
-                .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2))
+                CategoryScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(CategoryScreenLayout.createSequentialGroup()
+                                .addComponent(categoryOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(categoryContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2))
         );
 
         SwitchPanels.addTab("tab2", CategoryScreen);
@@ -612,22 +605,22 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout sessionOptionsLayout = new javax.swing.GroupLayout(sessionOptions);
         sessionOptions.setLayout(sessionOptionsLayout);
         sessionOptionsLayout.setHorizontalGroup(
-            sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sessionOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnReturnSession, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExitSession, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(428, Short.MAX_VALUE))
+                sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(sessionOptionsLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnReturnSession, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExitSession, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(428, Short.MAX_VALUE))
         );
         sessionOptionsLayout.setVerticalGroup(
-            sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sessionOptionsLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReturnSession)
-                    .addComponent(btnExitSession))
-                .addContainerGap(47, Short.MAX_VALUE))
+                sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sessionOptionsLayout.createSequentialGroup()
+                                .addContainerGap(31, Short.MAX_VALUE)
+                                .addGroup(sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnReturnSession)
+                                        .addComponent(btnExitSession))
+                                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         sessionContent.setAlignmentX(0.0F);
@@ -644,44 +637,41 @@ public class MainScreen extends javax.swing.JFrame {
 
         sessionTable.setAlignmentX(0.0F);
         sessionTable.setAlignmentY(0.0F);
-        sessionTable.setMaximumSize(new java.awt.Dimension(600, 80));
-        sessionTable.setMinimumSize(new java.awt.Dimension(600, 80));
-        sessionTable.setPreferredSize(new java.awt.Dimension(600, 300));
         sessionScrollPane.setViewportView(sessionTable);
 
         javax.swing.GroupLayout sessionContentLayout = new javax.swing.GroupLayout(sessionContent);
         sessionContent.setLayout(sessionContentLayout);
         sessionContentLayout.setHorizontalGroup(
-            sessionContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sessionContentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sessionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
-                .addContainerGap())
+                sessionContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(sessionContentLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(sessionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         sessionContentLayout.setVerticalGroup(
-            sessionContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sessionContentLayout.createSequentialGroup()
-                .addComponent(sessionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 294, Short.MAX_VALUE)
-                .addContainerGap())
+                sessionContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(sessionContentLayout.createSequentialGroup()
+                                .addComponent(sessionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 294, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout SessionScreenLayout = new javax.swing.GroupLayout(SessionScreen);
         SessionScreen.setLayout(SessionScreenLayout);
         SessionScreenLayout.setHorizontalGroup(
-            SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SessionScreenLayout.createSequentialGroup()
-                .addGroup(SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SessionScreenLayout.createSequentialGroup()
+                                .addGroup(SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12))
         );
         SessionScreenLayout.setVerticalGroup(
-            SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SessionScreenLayout.createSequentialGroup()
-                .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                SessionScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SessionScreenLayout.createSequentialGroup()
+                                .addComponent(sessionOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(sessionContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         SwitchPanels.addTab("tab2", SessionScreen);
@@ -705,55 +695,55 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout taskRegisterPanelLayout = new javax.swing.GroupLayout(taskRegisterPanel);
         taskRegisterPanel.setLayout(taskRegisterPanelLayout);
         taskRegisterPanelLayout.setHorizontalGroup(
-            taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskRegisterPanelLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
-                .addGroup(taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(txtDescriptionTask)
-                    .addComponent(btnRegisterTask, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                    .addComponent(categoryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtTitleTask, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 234, Short.MAX_VALUE))
+                taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(taskRegisterPanelLayout.createSequentialGroup()
+                                .addGap(253, 253, 253)
+                                .addGroup(taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                        .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                        .addComponent(txtDescriptionTask)
+                                        .addComponent(btnRegisterTask, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                        .addComponent(categoryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtTitleTask, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 234, Short.MAX_VALUE))
         );
 
-        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegisterTask, categoryBox, lblCategory, lblDescription, lblTitle, txtDescriptionTask, txtTitleTask});
+        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{btnRegisterTask, categoryBox, lblCategory, lblDescription, lblTitle, txtDescriptionTask, txtTitleTask});
 
         taskRegisterPanelLayout.setVerticalGroup(
-            taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskRegisterPanelLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTitleTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDescriptionTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(categoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegisterTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131))
+                taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(taskRegisterPanelLayout.createSequentialGroup()
+                                .addGap(67, 67, 67)
+                                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTitleTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDescriptionTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(categoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRegisterTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(131, 131, 131))
         );
 
         javax.swing.GroupLayout taskRegisterScreenLayout = new javax.swing.GroupLayout(taskRegisterScreen);
         taskRegisterScreen.setLayout(taskRegisterScreenLayout);
         taskRegisterScreenLayout.setHorizontalGroup(
-            taskRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(taskRegisterScreenLayout.createSequentialGroup()
-                .addComponent(taskRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                taskRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(taskRegisterScreenLayout.createSequentialGroup()
+                                .addComponent(taskRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         taskRegisterScreenLayout.setVerticalGroup(
-            taskRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskRegisterScreenLayout.createSequentialGroup()
-                .addComponent(taskRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                taskRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, taskRegisterScreenLayout.createSequentialGroup()
+                                .addComponent(taskRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         SwitchPanels.addTab("tab5", taskRegisterScreen);
@@ -773,49 +763,49 @@ public class MainScreen extends javax.swing.JFrame {
         javax.swing.GroupLayout categoryRegisterPanelLayout = new javax.swing.GroupLayout(categoryRegisterPanel);
         categoryRegisterPanel.setLayout(categoryRegisterPanelLayout);
         categoryRegisterPanelLayout.setHorizontalGroup(
-            categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addGroup(categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDescriptionCategory)
-                    .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegisterCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 236, Short.MAX_VALUE))
+                categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
+                                .addGap(235, 235, 235)
+                                .addGroup(categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblDescriptionCategory)
+                                        .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnRegisterCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 236, Short.MAX_VALUE))
         );
 
-        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegisterCategory, lblDescriptionCategory, lblNameCategory, txtDescriptionCategory, txtNameCategory});
+        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[]{btnRegisterCategory, lblDescriptionCategory, lblNameCategory, txtDescriptionCategory, txtNameCategory});
 
         categoryRegisterPanelLayout.setVerticalGroup(
-            categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(lblNameCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDescriptionCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegisterCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
+                categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(lblNameCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDescriptionCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRegisterCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(123, 123, 123))
         );
 
         javax.swing.GroupLayout categoryRegisterScreenLayout = new javax.swing.GroupLayout(categoryRegisterScreen);
         categoryRegisterScreen.setLayout(categoryRegisterScreenLayout);
         categoryRegisterScreenLayout.setHorizontalGroup(
-            categoryRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoryRegisterScreenLayout.createSequentialGroup()
-                .addComponent(categoryRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                categoryRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(categoryRegisterScreenLayout.createSequentialGroup()
+                                .addComponent(categoryRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         categoryRegisterScreenLayout.setVerticalGroup(
-            categoryRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, categoryRegisterScreenLayout.createSequentialGroup()
-                .addComponent(categoryRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                categoryRegisterScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, categoryRegisterScreenLayout.createSequentialGroup()
+                                .addComponent(categoryRegisterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         SwitchPanels.addTab("tab5", categoryRegisterScreen);
@@ -1225,7 +1215,7 @@ public class MainScreen extends javax.swing.JFrame {
         int remainingSeconds = totalSeconds - elapsedSeconds;
         int minutes = remainingSeconds / 60;
         int seconds = remainingSeconds % 60;
-        lblTimer.setText(String.format("%02d:%02d", minutes, seconds));
+        lblTimer.setText(String.format("%02d:%02d", Integer.valueOf(minutes), Integer.valueOf(seconds)));
     }
 
     private void finishPomodoro() {
@@ -1242,10 +1232,8 @@ public class MainScreen extends javax.swing.JFrame {
             try {
                 PomodoroSessionRequest sessionRequest = new PomodoroSessionRequest();
                 sessionRequest.setTarefaId(selectedTask.getId());
-                sessionRequest.setDuration((long) totalSeconds); // Duração em segundos
+                sessionRequest.setDuration(Long.valueOf(totalSeconds)); // Duração em segundos
                 sessionRequest.setCreatedAt(sessionStartTime);
-                sessionRequest.setUpdatedAt(new Date());
-                sessionRequest.setStatus(Status.COMPLETED);
 
                 pomodoroSessionController.create(sessionRequest);
 
@@ -1256,16 +1244,16 @@ public class MainScreen extends javax.swing.JFrame {
             } catch (Exception e) {
                 logger.severe("Erro ao salvar sessão Pomodoro: " + e.getMessage());
                 JOptionPane.showMessageDialog(this,
-                    "Erro ao salvar a sessão Pomodoro: " + e.getMessage(),
-                    "Erro",
-                    JOptionPane.ERROR_MESSAGE);
+                        "Erro ao salvar a sessão Pomodoro: " + e.getMessage(),
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
 
         JOptionPane.showMessageDialog(this,
-            "Parabéns! Você completou o Pomodoro da tarefa: " + taskName,
-            "Pomodoro Concluído!",
-            JOptionPane.INFORMATION_MESSAGE);
+                "Parabéns! Você completou o Pomodoro da tarefa: " + taskName,
+                "Pomodoro Concluído!",
+                JOptionPane.INFORMATION_MESSAGE);
 
         // Resetar UI
         lblTimer.setText("00:00");
