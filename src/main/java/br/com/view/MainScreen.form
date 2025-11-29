@@ -99,9 +99,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="254" max="-2" attributes="0"/>
+                          <EmptySpace pref="254" max="32767" attributes="0"/>
                           <Component id="lblProgram" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
+                          <EmptySpace pref="255" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -110,7 +110,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="73" max="32767" attributes="0"/>
                           <Component id="lblProgram" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace pref="44" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -240,7 +240,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="content" alignment="0" max="32767" attributes="0"/>
+                  <Component id="content" alignment="0" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -268,11 +268,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="154" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="progressDuration" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -299,16 +299,16 @@
                                   </Group>
                               </Group>
                               <Component id="txtStatus" max="32767" attributes="0"/>
-                              <Component id="lblTimer" max="32767" attributes="0"/>
+                              <Component id="lblTimer" min="-2" pref="293" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="255" max="32767" attributes="0"/>
+                          <EmptySpace pref="153" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="98" max="32767" attributes="0"/>
                           <Component id="lblTimer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtStatus" min="-2" max="-2" attributes="0"/>
@@ -332,7 +332,7 @@
                               <Component id="btnExitProgram" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnStopTask" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace pref="112" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -498,7 +498,7 @@
                       <Component id="taskOptions" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="taskContent" min="-2" pref="286" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace pref="8" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -545,13 +545,13 @@
                               <Component id="btnReturnTask" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnExitTask" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnUpdateTask" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDeleteTask" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCreateTask" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -754,13 +754,13 @@
                               <Component id="btnReturnCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnExitCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnUpdateCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDeleteCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCreateCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -824,9 +824,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="categoryScrollPane" pref="588" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -952,7 +952,7 @@
                               <Component id="btnReturnSession" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnExitSession" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace pref="47" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1092,16 +1092,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtTitleTask" linkSize="7" max="32767" attributes="0"/>
-                              <Component id="lblTitle" linkSize="7" alignment="0" pref="58" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTitle" linkSize="7" pref="58" max="32767" attributes="0"/>
                               <Component id="lblDescription" linkSize="7" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblCategory" linkSize="7" alignment="0" pref="58" max="32767" attributes="0"/>
                               <Component id="txtDescriptionTask" linkSize="7" max="32767" attributes="0"/>
                               <Component id="btnRegisterTask" linkSize="7" pref="81" max="32767" attributes="0"/>
-                              <Component id="categoryBox" alignment="0" max="32767" attributes="0"/>
+                              <Component id="categoryBox" linkSize="7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTitleTask" linkSize="7" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="266" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="234" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1112,7 +1112,7 @@
                           <Component id="lblTitle" pref="22" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtTitleTask" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblDescription" pref="22" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtDescriptionTask" min="-2" max="-2" attributes="0"/>
@@ -1212,15 +1212,15 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtNameCategory" linkSize="9" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblNameCategory" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
-                              <Component id="lblDescriptionCategory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDescriptionCategory" linkSize="9" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="btnRegisterCategory" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="txtNameCategory" linkSize="10" min="-2" pref="141" max="-2" attributes="0"/>
+                              <Component id="lblNameCategory" linkSize="10" alignment="0" min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="lblDescriptionCategory" linkSize="10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDescriptionCategory" linkSize="10" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="btnRegisterCategory" linkSize="10" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="266" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="236" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

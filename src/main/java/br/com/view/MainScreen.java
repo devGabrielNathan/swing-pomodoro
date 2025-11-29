@@ -162,16 +162,16 @@ public class MainScreen extends javax.swing.JFrame {
         LogoLayout.setHorizontalGroup(
             LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoLayout.createSequentialGroup()
-                .addGap(254, 254, 254)
+                .addContainerGap(254, Short.MAX_VALUE)
                 .addComponent(lblProgram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(255, 255, 255))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         LogoLayout.setVerticalGroup(
             LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogoLayout.createSequentialGroup()
                 .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(lblProgram)
-                .addGap(44, 44, 44))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         CrudButtons.setPreferredSize(new java.awt.Dimension(600, 250));
@@ -300,8 +300,8 @@ public class MainScreen extends javax.swing.JFrame {
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                .addContainerGap(154, Short.MAX_VALUE)
                 .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(progressDuration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(contentLayout.createSequentialGroup()
@@ -324,8 +324,8 @@ public class MainScreen extends javax.swing.JFrame {
                             .addComponent(btnPauseTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnStopTask, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(255, Short.MAX_VALUE))
+                    .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         contentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnReturnInitialTask, lblDuration, lblTask});
@@ -335,7 +335,7 @@ public class MainScreen extends javax.swing.JFrame {
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addComponent(lblTimer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,7 +356,7 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(btnReturnInitialTask)
                     .addComponent(btnExitProgram)
                     .addComponent(btnStopTask))
-                .addGap(120, 120, 120))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         btnStartTask.getAccessibleContext().setAccessibleDescription("");
@@ -365,7 +365,7 @@ public class MainScreen extends javax.swing.JFrame {
         StartProgram.setLayout(StartProgramLayout);
         StartProgramLayout.setHorizontalGroup(
             StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         StartProgramLayout.setVerticalGroup(
             StartProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,12 +424,12 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReturnTask)
                     .addComponent(btnExitTask))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(taskOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateTask)
                     .addComponent(btnDeleteTask)
                     .addComponent(btnCreateTask))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         taskContent.setAlignmentX(0.0F);
@@ -482,7 +482,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(taskOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(taskContent, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         SwitchPanels.addTab("tab2", TaskScreen);
@@ -534,12 +534,12 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReturnCategory)
                     .addComponent(btnExitCategory))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(categoryOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateCategory)
                     .addComponent(btnDeleteCategory)
                     .addComponent(btnCreateCategory))
-                .addGap(12, 12, 12))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         categoryContent.setAlignmentX(0.0F);
@@ -565,9 +565,9 @@ public class MainScreen extends javax.swing.JFrame {
         categoryContentLayout.setHorizontalGroup(
             categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryContentLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 588, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         categoryContentLayout.setVerticalGroup(
             categoryContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -627,7 +627,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addGroup(sessionOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReturnSession)
                     .addComponent(btnExitSession))
-                .addGap(47, 47, 47))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         sessionContent.setAlignmentX(0.0F);
@@ -708,18 +708,18 @@ public class MainScreen extends javax.swing.JFrame {
             taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(taskRegisterPanelLayout.createSequentialGroup()
                 .addGap(253, 253, 253)
-                .addGroup(taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTitleTask)
+                .addGroup(taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addComponent(txtDescriptionTask)
                     .addComponent(btnRegisterTask, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                    .addComponent(categoryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 266, Short.MAX_VALUE))
+                    .addComponent(categoryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTitleTask, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 234, Short.MAX_VALUE))
         );
 
-        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegisterTask, lblCategory, lblDescription, lblTitle, txtDescriptionTask, txtTitleTask});
+        taskRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegisterTask, categoryBox, lblCategory, lblDescription, lblTitle, txtDescriptionTask, txtTitleTask});
 
         taskRegisterPanelLayout.setVerticalGroup(
             taskRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -728,7 +728,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTitleTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDescriptionTask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -775,17 +775,17 @@ public class MainScreen extends javax.swing.JFrame {
         categoryRegisterPanelLayout.setHorizontalGroup(
             categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoryRegisterPanelLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(235, 235, 235)
                 .addGroup(categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDescriptionCategory)
                     .addComponent(txtDescriptionCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegisterCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 266, Short.MAX_VALUE))
+                .addGap(0, 236, Short.MAX_VALUE))
         );
 
-        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtDescriptionCategory, txtNameCategory});
+        categoryRegisterPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegisterCategory, lblDescriptionCategory, lblNameCategory, txtDescriptionCategory, txtNameCategory});
 
         categoryRegisterPanelLayout.setVerticalGroup(
             categoryRegisterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -841,6 +841,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void btnCrudSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrudSessionsActionPerformed
         switchScreens("Sessions", SwitchPanels);
+        refreshAllTables();
     }//GEN-LAST:event_btnCrudSessionsActionPerformed
 
     // ------------------------------------------ Program Screen ---------------------------------------------------- //
