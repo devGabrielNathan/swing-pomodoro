@@ -14,27 +14,27 @@ Java 8+ e NetBeans (necessário para editar o `.form` do Swing).
   <tr>
     <td align="center">
       <b>Tela inicial</b><br/>
-      <img src="docs/initial-screen.png" width="300"/>
+      <img src="docs/initial-screen.png" width="500"/>
     </td>
     <td align="center">
       <b>Timer Pomodoro</b><br/>
-      <img src="docs/program-screen.png" width="300"/>
+      <img src="docs/program-screen.png" width="500"/>
     </td>
   </tr>
   <tr>
     <td align="center">
       <b>Tarefas</b><br/>
-      <img src="docs/task-screen.png" width="300"/>
+      <img src="docs/task-screen.png" width="500"/>
     </td>
     <td align="center">
       <b>Categorias</b><br/>
-      <img src="docs/category-screen.png" width="300"/>
+      <img src="docs/category-screen.png" width="500"/>
     </td>
   </tr>
   <tr>
     <td align="center" colspan="2">
       <b>Histórico de sessões</b><br/>
-      <img src="docs/session-screen.png" width="300"/>
+      <img src="docs/session-screen.png" width="500"/>
     </td>
   </tr>
 </table>
